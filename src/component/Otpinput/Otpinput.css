@@ -1,0 +1,13 @@
+.otpcontainor {
+  display: flex;
+  gap: .75rem;
+}
+
+.otpinput {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+}
+.otp-input-group{
+  border: none;
+}

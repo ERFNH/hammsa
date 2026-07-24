@@ -1,0 +1,20 @@
+.background {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay {
+  width: 25.5rem;
+  height: 45rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.466);
+  backdrop-filter: blur(25px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  margin-bottom: 4rem;
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+  padding-top: calc(2.5rem + env(safe-area-inset-bottom));
+}

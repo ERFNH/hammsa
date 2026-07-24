@@ -1,0 +1,38 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.input {
+  border: 1px solid #8a8a8a;
+  border-radius: 0.875rem;
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  outline: none;
+}
+.input-group {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  direction: rtl;
+}
+.input-textphone {
+  background: #d5b1726f;
+  border: none;
+}
+.input-number {
+  background: #d5b1726f;
+  border: none;
+  width: 4rem;
+}
+.textarea-input {
+  resize: none;
+  padding: 10px 12px;
+  min-height: 80px;
+}

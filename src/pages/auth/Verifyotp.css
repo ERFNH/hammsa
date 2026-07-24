@@ -1,0 +1,27 @@
+.Verify {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+.Verify-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+.Verify-title{
+  font-weight: 400;
+  font-size: 1rem;
+}
+.verify-edit{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.number{
+  font-size: .8rem;
+  color: #8A8A8A;
+}

@@ -1,0 +1,23 @@
+.tabs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+.tabs button {
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  border: none;
+  width: 8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.tabactive {
+  background: #c68b27;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+.tabinactive {
+  background: #d5b072;
+}

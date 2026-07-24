@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  bottom: 0;
+  z-index: 10;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 2rem;
+  background: #ffffff;
+  width: 100%;
+  max-width: 430px;
+  position: absolute;
+  padding-bottom: calc(0.55rem + env(safe-area-inset-bottom));
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  color: #000000;
+}
+
+.footer-link.active .icon {
+  color: #d5b072;
+}

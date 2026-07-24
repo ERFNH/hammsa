@@ -1,0 +1,51 @@
+.Buildinginfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.forminput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input-label {
+  width: 100%;
+}
+
+.input-group textarea {
+  width: 15rem;
+}
+
+.post {
+  border: none;
+  background: #d5b1726f;
+}
+.buttoninfo {
+  background: #d5b1726f;
+  width: 19rem;
+  text-align: center;
+}
+.sendinfo {
+  background: #d5b172;
+  width: 19rem;
+  text-align: center;
+}
+.fileinput input {
+  display: none;
+}
+
+.fileinput label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 23rem;
+  height: 2.55rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  background: #d5b1726f;
+  transition: 0.2s;
+}

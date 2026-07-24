@@ -1,0 +1,39 @@
+.switchstyle {
+  display: grid;
+  grid-template-columns: 22rem 1fr;
+  direction: rtl;
+}
+.switchstyle input {
+  display: none;
+}
+.switchstyle label {
+  position: relative;
+  cursor: pointer;
+}
+.switchstyle label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.5rem;
+  height: 1.5rem;
+  border: 2px solid #d5b172;
+  border-radius: 1.9rem;
+}
+.switchstyle label::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: gray;
+  transition: 0.3s;
+}
+.switchstyle input:checked + label::after {
+  left: 2.4rem;
+  background: #d5b172;
+}

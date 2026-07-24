@@ -1,0 +1,76 @@
+.welcome-header {
+  position: relative;
+  margin: 0 auto;
+}
+.buildingimage {
+  position: relative;
+  height: 20rem;
+  width: 100%;
+  opacity: 50%;
+}
+
+.welcome-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: absolute;
+  top: 3rem;
+  left: 6rem;
+  background-color: rgba(255, 255, 255, 0.165);
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 1.5rem;
+  width: 14rem;
+  height: 8rem;
+}
+.welcomebox-title {
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.3rem;
+  font-weight: 400;
+}
+.welcomebox-button {
+  font-size: 0.5rem;
+}
+.Welcome-firstbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 16rem;
+  height: 11rem;
+  background-color: #75757538;
+  border-radius: 1.5rem;
+  box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.3);
+  margin: 2.5rem auto;
+}
+.firstbox-detail {
+  display: grid;
+  grid-template: repeat(2, auto) / repeat(2, 1fr);
+  gap: 1.2rem 3rem;
+}
+.firstbox-item {
+  background-color: rgba(255, 255, 255, 0.518);
+  border-radius: 0.75rem;
+  font-size: 0.8rem;
+  padding: 0.3rem;
+  text-align: center;
+}
+.firstbox-desc {
+  text-align: right;
+}
+.paybutton {
+  font-size: 0.8rem;
+}
+.welcome-button {
+  display: grid;
+  grid-template: repeat(3, auto) / repeat(2, 1fr);
+  gap: 2.5rem 2rem;
+  width: fit-content;
+  margin: 2rem auto;
+}
