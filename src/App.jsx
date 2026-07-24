@@ -14,7 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/*
+
         <Route element={<Layout />}>
           <Route path="/" element={<RequestOtp />} />
           <Route path="/verify" element={<VerifyOtp />} />
@@ -22,7 +22,7 @@ function App() {
         <Route element={<Welcomelayout />}>
           <Route path="/welcome" element={<Welcome />} />
         </Route>
-*/}
+
 
         <Route element={<Otherlayout />}>
           <Route path="/Managerprofile" element={<Managerprofile />} />
