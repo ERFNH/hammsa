@@ -21,7 +21,7 @@ const Input = forwardRef(
     ref,
   ) => {
     return (
-      <div className={`input-group${groupClassName}`}>
+      <div className={`input-group${groupClassName}`.trim()}>
         {label && <label className="input-label">{label}</label>}
         {type === "textarea" ? (
           <textarea
@@ -31,7 +31,7 @@ const Input = forwardRef(
             name={name}
             placeholder={placeholder}
             value={value}
-            onChange={onChange}
+            onChange={(e) => onChange(e.target.value)}
             onKeyDown={onKeyDown}
             maxLength={maxLength}
             rows={rows}
@@ -44,7 +44,7 @@ const Input = forwardRef(
             name={name}
             placeholder={placeholder}
             value={value}
-            onChange={onChange}
+            onChange={(e) => onChange(e.target.value)}
             onKeyDown={onKeyDown}
             inputMode={inputMode}
             maxLength={maxLength}

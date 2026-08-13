@@ -1,4 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Buildingcontrol } from "./context/Buildingcontext";
+import { Rolecomponent } from "./component/Rolecomponent/Rolecomponent";
+import { Roles } from "./constants/Roles";
 import Layout from "./component/Layout/Layout";
 import Otherlayout from "./component/Layout/Otherlayout";
 import Welcomelayout from "./component/Layout/Welcomelayout";
@@ -10,28 +13,101 @@ import Buildinginfo from "./pages/manager/Buildinginfo";
 import Changing from "./pages/manager/Changing";
 import Newowner from "./pages/manager/Newowner";
 import Showmembers from "./pages/manager/Showmembers";
+import Newannouncement from "./pages/manager/Newannouncement";
+import Showancmt from "./pages/Showancmt";
+import Newrepair from "./pages/Newrepair";
+import Showrepair from "./pages/manager/Showrepair";
+import Poll from "./pages/manager/Poll";
+import Showpoll from "./pages/Showpoll";
+import Reservation from "./pages/Resevation";
+import Showresevation from "./pages/Showresevation";
+import Publicprofile from "./pages/Publicprofile";
+import Costspage from "./pages/manager/Costs/Costspage";
+import Newcost from "./pages/manager/Costs/Newcost";
+import Setcharge from "./pages/manager/Costs/Setcharge";
+import Ownerprofile from "./pages/owner/Ownerprofile";
+import Financepage from "./pages/Finance/Financepage";
+import Tenantprofile from "./pages/tenant/Tenantprofile";
+import Showtanant from "./pages/owner/Showtanant";
+import Newtenant from "./pages/owner/Newtenant";
+import Transfer from "./pages/manager/Transfer";
+import NewCowner from "./pages/owner/NewCowner";
+import NewCotenant from "./pages/tenant/NewCotenant";
+import ShowCoMember from "./component/ShowCoMember/ShowCoMember"
+import FixCost from "./pages/manager/Costs/FixCost"
+import ShowFixCost from "./pages/Finance/ShowFixCost"
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <Buildingcontrol>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<RequestOtp />} />
+            <Route path="/verify" element={<VerifyOtp />} />
+          </Route>
+          <Route element={<Welcomelayout />}>
+            <Route path="/Welcome" element={<Welcome />} />
+          </Route>
 
-        <Route element={<Layout />}>
-          <Route path="/" element={<RequestOtp />} />
-          <Route path="/verify" element={<VerifyOtp />} />
-        </Route>
-        <Route element={<Welcomelayout />}>
-          <Route path="/welcome" element={<Welcome />} />
-        </Route>
-
-
-        <Route element={<Otherlayout />}>
-          <Route path="/Managerprofile" element={<Managerprofile />} />
-          <Route path="/Buildinginfo" element={<Buildinginfo />} />
-          <Route path="/Changing" element={<Changing />} />
-          <Route path="/Newowner" element={<Newowner />} />
-          <Route path="/Showmembers" element={<Showmembers/>}/>
-        </Route>
-      </Routes>
+          <Route element={<Otherlayout />}>
+            {/*
+            <Route
+              path="/Managerprofile"
+              element={
+                <Rolecomponent allowedRoles={[Roles.manager]}>
+                  <Managerprofile />
+                </Rolecomponent>
+              }
+            />
+            */}
+            <Route path="/Managerprofile" element={<Managerprofile />} />
+            <Route path="/Buildinginfo" element={<Buildinginfo />} />
+            <Route path="/Changing" element={<Changing />} />
+            <Route path="/Newowner" element={<Newowner />} />
+            <Route path="/Showmembers" element={<Showmembers />} />
+            <Route path="/Newannouncement" element={<Newannouncement />} />
+            <Route path="/Showancmt" element={<Showancmt />} />
+            <Route path="/Newrepair" element={<Newrepair />} />
+            <Route path="/Showrepair" element={<Showrepair />} />
+            <Route path="/Poll" element={<Poll />} />
+            <Route path="/Showpoll" element={<Showpoll />} />
+            <Route path="/Reservation" element={<Reservation />} />
+            <Route path="/Showresevation" element={<Showresevation />} />
+            <Route path="/Transfer" element={<Transfer />} />
+            <Route path="/Publicprofile" element={<Publicprofile />} />
+            <Route path="/Costspage" element={<Costspage />} />
+            <Route path="/Newcost" element={<Newcost />} />
+            <Route path="/Setcharge" element={<Setcharge />} />
+            <Route path="/ownerprofile" element={<Ownerprofile />} />
+            <Route path="/NewCowner" element={<NewCowner />} />
+            {/* 
+            <Route
+              path="/Ownerprofile"
+              element={
+                <Rolecomponent allowedRoles={[Roles.owner]}>
+                  <Ownerprofile />
+                </Rolecomponent>
+              }
+            />
+            */}
+            <Route path="/Showtanant" element={<Showtanant />} />
+            <Route path="/Newtenant" element={<Newtenant />} />
+            <Route path="/ShowCoMember" element={<ShowCoMember />} />
+            <Route path="/Financepage" element={<Financepage />} />
+            <Route path="/FixCost" element={<FixCost />} />
+            <Route path="/ShowFixCost" element={<ShowFixCost />} />
+            <Route
+              path="/Tenantprofile"
+              element={
+                <Rolecomponent allowedRoles={[Roles.tenant]}>
+                  <Tenantprofile />
+                </Rolecomponent>
+              }
+            />
+            <Route path="/NewCotenant" element={<NewCotenant />} />
+          </Route>
+        </Routes>
+      </Buildingcontrol>
     </BrowserRouter>
   );
 }

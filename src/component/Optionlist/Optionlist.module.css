@@ -1,0 +1,99 @@
+.optionContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  direction: rtl;
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.optionItem:hover:not(.disabled) {
+  background: rgba(213, 177, 114, 0.1);
+}
+
+.optionItem.selected {
+  background: rgba(213, 177, 114, 0.15);
+  border-color: #d5b072;
+}
+
+.optionItem.disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.optionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.percentageBar {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.percentageFill {
+  height: 100%;
+  background: #d5b072;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.percentageFill.myVote {
+  background: #22c55e;
+}
+
+.percentageText {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 0.1rem;
+}
+
+.radioCircle {
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: #646768;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.radioInner {
+  width: .8rem;
+  height: .8rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.radioInner.active {
+  background-color: #d5b072;
+}
+
+.loadingText {
+  text-align: center;
+  color: #999;
+  padding: 2rem 0;
+}
+
+.votedText {
+  text-align: center;
+  color: #22c55e;
+  font-weight: 500;
+  padding: 0.5rem;
+  background: rgba(34, 197, 94, 0.1);
+  border-radius: 0.5rem;
+}

@@ -1,0 +1,142 @@
+.addoption {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f5f5f5;
+  border-radius: 0.75rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid #e5e7eb;
+}
+
+.optionText {
+  font-size: 0.95rem;
+  color: #333;
+  flex: 1;
+  direction: rtl;
+  padding-right: 1rem;
+}
+
+.removeBtn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #999;
+  padding: 0.2rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.removeBtn:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.removeBtn svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.addWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #fafafa;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid #d5b172;
+}
+
+.addInput {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  outline: none;
+  direction: rtl;
+}
+
+.addInput:focus {
+  border-color: #d5b172;
+  box-shadow: 0 0 0 3px rgba(213, 177, 114, 0.2);
+}
+
+.addActions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.cancelBtn {
+  padding: 0.4rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: white;
+  color: #666;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.cancelBtn:hover {
+  background: #f5f5f5;
+}
+
+.confirmBtn {
+  padding: 0.4rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #d5b172;
+  color: white;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.confirmBtn:hover:not(:disabled) {
+  background: #c4a065;
+}
+
+.confirmBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.addBtn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 0.5rem;
+  padding: 0.6rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color:#d5b1727d ;
+}
+
+.addBtn:hover {
+  background: #D5B072;
+}
+
+.addBtn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}

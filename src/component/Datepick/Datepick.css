@@ -1,0 +1,61 @@
+.datepicker-group {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  align-items: center;
+  direction: rtl;
+}
+
+.datepicker-wrapper {
+  position: relative;
+}
+
+.datepicker-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #d5b072;
+  border-radius: 1rem;
+}
+
+.datepicker-input {
+  border: none;
+  background: transparent;
+  border-radius: 0.875rem;
+  padding: 1rem 0.1rem;
+  outline: none;
+  text-align: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.calendar-icon {
+  position: absolute;
+  right: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.calendar-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.datepicker-wrapper .pk-input {
+  display: none;
+}
+.datepicker-popover {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-25%);
+  z-index: 1000;
+  background: white;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}

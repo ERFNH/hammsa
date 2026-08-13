@@ -19,7 +19,7 @@ input[type="number"] {
 }
 .input-group {
   display: grid;
-  grid-template-columns: 7.5rem 1fr;
+  grid-template-columns: 10rem 1fr;
   direction: rtl;
 }
 .input-textphone {
@@ -36,3 +36,5 @@ input[type="number"] {
   padding: 10px 12px;
   min-height: 80px;
 }
+
+

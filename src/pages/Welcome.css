@@ -1,10 +1,10 @@
 .welcome-header {
   position: relative;
   margin: 0 auto;
+  width: 100%;
 }
 .buildingimage {
-  position: relative;
-  height: 20rem;
+  height: 24rem;
   width: 100%;
   opacity: 50%;
 }
@@ -26,12 +26,18 @@
   width: 14rem;
   height: 8rem;
 }
+.mianwelcome {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
 .welcomebox-title {
   font-size: 0.7rem;
   display: flex;
   justify-content: flex-start;
   gap: 0.3rem;
   font-weight: 400;
+  direction: rtl;
 }
 .welcomebox-button {
   font-size: 0.5rem;
@@ -42,12 +48,12 @@
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  width: 16rem;
-  height: 11rem;
+  width: fit-content;
+  height: fit-content;
   background-color: #75757538;
   border-radius: 1.5rem;
   box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.3);
-  margin: 2.5rem auto;
+  padding: 1.5rem 1rem;
 }
 .firstbox-detail {
   display: grid;

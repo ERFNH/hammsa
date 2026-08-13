@@ -1,12 +1,4 @@
-.Buildinginfo {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.forminput {
+.formswitch {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -17,22 +9,12 @@
 }
 
 .input-group textarea {
-  width: 15rem;
+  width: 19rem;
 }
 
 .post {
   border: none;
   background: #d5b1726f;
-}
-.buttoninfo {
-  background: #d5b1726f;
-  width: 19rem;
-  text-align: center;
-}
-.sendinfo {
-  background: #d5b172;
-  width: 19rem;
-  text-align: center;
 }
 .fileinput input {
   display: none;

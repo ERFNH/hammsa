@@ -1,73 +1,149 @@
 import "./Showmembers.css";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import Tabs from "../../component/Tabs/Tabs";
-import { getUnits } from "../../api/auth";
+import { getUnits, removeowner } from "../../api/auth";
 import { useBuilding } from "../../context/Buildingcontext";
 import { useEffect, useState } from "react";
-
+import MemberCard from "../../component/Membercard/Membercard";
+//import EditMember from "../../component/EditMember/EditMember";
+import "../../global.css";
+import Backbutton from "../../component/Backbutton/Backbutton";
 function Showmembers() {
   const [activeTab, setActiveTab] = useState("owner");
   const { activeBuilding } = useBuilding();
   const [units, setUnits] = useState([]);
-
-  useEffect(() => {
-    if (activeBuilding?.id) {
-      getUnits(activeBuilding.id)
-        .then((response) => {
-          console.log(response.data);
-          setUnits(response.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+  const [loading, setLoading] = useState(true);
+  //const [editingMember, setEditingMember] = useState(null);
+  const fetchMembers = async () => {
+    if (!activeBuilding?.buildingId) return;
+    try {
+      setLoading(true);
+      const response = await getUnits(activeBuilding.buildingId);
+      console.log("get unit", response.data);
+      setUnits(response.data || []);
+    } catch (error) {
+      console.log(error.response?.data);
+      console.error("get unit", error);
+    } finally {
+      setLoading(false);
     }
+  };
+  useEffect(() => {
+    fetchMembers();
   }, [activeBuilding]);
-
+  const handleStatusClick = async (unit, setLocalStatus, setIsActive) => {
+    if (!activeBuilding?.buildingId) return;
+    try {
+      await removeowner(
+        activeBuilding.buildingId,
+        Number(unit.block),
+        Number(unit.floor),
+        Number(unit.unitNumber),
+      );
+      alert("مالک حذف شد");
+      setLocalStatus("تمام شده");
+      setIsActive(false);
+      await fetchMembers();
+    } catch (error) {
+      console.error("remove owner error:", error);
+      alert(error?.response?.data?.message || "خطا در حذف مالک");
+    }
+  };
+  const owners = units.flatMap((unit) =>
+    (unit.members || [])
+      .filter((member) => member.role === 1)
+      .map((member) => ({
+        member,
+        unit,
+      })),
+  );
+  const tenants = units.flatMap((unit) =>
+    (unit.members || [])
+      .filter((member) => member.role === 2)
+      .map((member) => ({
+        member,
+        unit,
+      })),
+  );
+  {
+    /* const handleEdit = (member, unit) => {
+    console.log("EDIT UNIT:", unit);
+    console.log("EDIT MEMBER:", member);
+    setEditingMember({
+      member,
+      unit,
+    });
+  };*/
+  }
   return (
-    <main className="showmember-main">
+    <main className="mainglobalinpage">
       <Backbutton />
       <Tabs
         tabs={[
-          { value: "tenant", label: "مستاجرین" },
-          { value: "owner", label: "مالکین" },
+          {
+            value: "tenant",
+            label: "مستاجرین",
+          },
+          {
+            value: "owner",
+            label: "مالکین",
+          },
         ]}
         value={activeTab}
         onChange={setActiveTab}
       />
       {activeTab === "owner" && (
         <div className="members-container">
-          {units.length === 0 ? (
-            <p className="loadinf-text">در حال دریافت اطلاعات</p>
+          {loading ? (
+            <p className="loadingtext">در حال دریافت اطلاعات</p>
+          ) : owners.length === 0 ? (
+            <p className="loadingtext">مالکی ثبت نشده است</p>
           ) : (
-            units.map((unit) =>
-              unit.members.map((member, index) => (
-                <div className="member-card" key={`${unit.unitId}-${index}`}>
-                  <div className="member-header">
-                    <span>{member.role === 1 ? " ساکن" : "موجر"}</span>
-                    <h3>...</h3>
-                  </div>
-                  <div className="member-footer">
-                    <p className="member-date">
-                      {member.startDate.split("T")[0]}
-                    </p>
-                    <span>
-                      بلوک {unit.block} طبقه {unit.floor} واحد {unit.unitNumber}
-                    </span>
-                    <span>{member.phoneNumber}</span>
-                  </div>
-                </div>
-              )),
-            )
+            owners.map(({ member, unit }) => (
+              <MemberCard
+                key={`${unit.unitId}-${member.phoneNumber}-${member.startDate}`}
+                member={member}
+                unit={unit}
+                onStatusClick={handleStatusClick}
+                //allowEdit={true}
+                //onEdit={() => handleEdit(member, unit)}
+              />
+            ))
           )}
         </div>
       )}
       {activeTab === "tenant" && (
         <div className="members-container">
-          <p className="loadinf-text"> مستاجری ثبت نشده است</p>
+          {loading ? (
+            <p className="loadingtext">در حال دریافت اطلاعات</p>
+          ) : tenants.length === 0 ? (
+            <p className="loadingtext">مستاجری ثبت نشده است</p>
+          ) : (
+            tenants.map(({ member, unit }) => (
+              <MemberCard
+                key={`${unit.unitId}-${member.phoneNumber}-${member.startDate}`}
+                member={member}
+                unit={unit}
+                onStatusClick={null}
+                //allowEdit={false}
+              />
+            ))
+          )}
         </div>
       )}
+      {/*{editingMember && (
+        <div className="edit-member-overlay">
+          <div className="edit-member-modal">
+            <EditMember
+              member={editingMember.member}
+              unit={editingMember.unit}
+              onClose={() => setEditingMember(null)}
+              onSave={editOwner}
+              showEndDate={false}
+            />
+          </div>
+        </div>
+      )}*/}
     </main>
   );
 }
-
 export default Showmembers;

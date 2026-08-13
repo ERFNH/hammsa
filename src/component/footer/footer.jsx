@@ -5,11 +5,22 @@ import Profile from "../../assets/icons/profile.svg?react";
 import Message from "../../assets/icons/message.svg?react";
 import FinancialAffairs from "../../assets/icons/financialaffairs.svg?react";
 import ShoppingCart from "../../assets/icons/shoppingcart.svg?react";
+import { useBuilding } from "../../context/Buildingcontext";
+import { Roles } from "../../constants/Roles";
+import { owners } from "../../api/auth";
 function footer() {
+  const { userRole, activeBuilding } = useBuilding();
+  let profilepath = "/managerprofile"
+  if(userRole === Roles.owner){
+    profilepath = "/Ownerprofile"
+  }
+  if (userRole === Roles.tenant){
+    profilepath = "/Tenantprofile"
+  }
   return (
     <footer className="footer">
       <NavLink
-        to="/managerprofile"
+        to={profilepath}
         className={({ isActive }) =>
           isActive ? "footer-link active" : "footer-link"
         }
@@ -17,7 +28,14 @@ function footer() {
         <Profile className="icon" />
       </NavLink>
       <Message />
-      <FinancialAffairs />
+      <NavLink
+        to="/Financepage"
+        className={({ isActive }) =>
+          isActive ? "footer-link active" : "footer-link"
+        }
+      >
+        <FinancialAffairs className="icon" />
+      </NavLink>
       <ShoppingCart />
       <NavLink
         to="/welcome"

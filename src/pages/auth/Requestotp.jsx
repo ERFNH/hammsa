@@ -23,9 +23,7 @@ function Requestotp() {
       console.log(error);
     }
   };
-  const Change = (e) => {
-    const value = e.target.value;
-
+  const Change = (value) => {
     if (/^\d*$/.test(value) && value.length <= 11) {
       setPhone(value);
     }
@@ -34,12 +32,13 @@ function Requestotp() {
   return (
     <main>
       <section className="login">
-          <div className="logo">
-            <img src={logo} alt="لوگوی همسا" />
-          </div>
+        <div className="logo">
+          <img src={logo} alt="لوگوی همسا" />
+        </div>
         <form className="login-box">
           <h1 className="login-title">شماره موبایل خود را وارد کنید</h1>
           <Input
+            groupClassName="reqphone"
             type="tel"
             name="phone"
             placeholder="09999999999"

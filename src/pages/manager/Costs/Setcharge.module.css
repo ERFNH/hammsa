@@ -1,0 +1,20 @@
+.chargebox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+.chargerow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputnewstyle{
+  width: auto;
+  border: none;
+  background-color: #d5b072;
+  direction: ltr;
+}

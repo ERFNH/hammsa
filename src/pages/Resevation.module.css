@@ -1,0 +1,42 @@
+.headerresevation {
+  font-size: 1rem;
+}
+.mainresevation {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+.selectgroup {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  direction: rtl;
+  width: 12rem;
+}
+.selectgroup Select {
+  width: 100%;
+}
+.formresevation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+/* در فایل Resevation.module.css */
+.submitbutton {
+  position: fixed;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.myreserve {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.myreserve link {
+  color: #000000;
+}

@@ -1,5 +1,5 @@
-import "./Buildinginfo.css";
 import "../../global.css";
+import styles from "./Buildinginfo.module.css";
 import Input from "../../component/Input/Input";
 import Button from "../../component/Button/Button";
 import Switch from "../../component/Switch/Switch";
@@ -12,7 +12,7 @@ import {
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useBuilding } from "../../context/Buildingcontext";
-
+import "../../global.css";
 function Buildinginfo() {
   const { activeBuilding } = useBuilding();
   const navigate = useNavigate();
@@ -29,7 +29,6 @@ function Buildinginfo() {
   const [hasMeetingHall, setHasMeetingHall] = useState(false);
   const [hasRoofGarden, setHasRoofGarden] = useState(false);
   const [image, setImage] = useState(null);
-
   React.useEffect(() => {
     if (activeBuilding?.id) {
       getBuildingDetails(activeBuilding.id)
@@ -53,7 +52,6 @@ function Buildinginfo() {
         });
     }
   }, [activeBuilding]);
-
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -67,13 +65,10 @@ function Buildinginfo() {
       },
     );
   };
-
   const Submit = async (e) => {
     e.preventDefault();
-
     try {
       let response;
-
       if (activeBuilding?.id) {
         const buildingData = {
           name: name,
@@ -89,7 +84,6 @@ function Buildinginfo() {
           hasMeetingHall: hasMeetingHall,
           hasRoofGarden: hasRoofGarden,
         };
-
         response = await updateBuilding(activeBuilding.id, buildingData);
       } else {
         const formData = new FormData();
@@ -106,14 +100,11 @@ function Buildinginfo() {
         formData.append("HasPool", hasPool);
         formData.append("HasMeetingHall", hasMeetingHall);
         formData.append("HasRoofGarden", hasRoofGarden);
-
         if (image) {
           formData.append("Image", image);
         }
-
         response = await createBuilding(formData);
       }
-
       console.log(response.data);
       alert("اطلاعات با موفقیت ثبت شد.");
 
@@ -125,55 +116,54 @@ function Buildinginfo() {
       alert("ثبت اطلاعات با خطا مواجه شد.");
     }
   };
-
   return (
-    <form className="Buildinginfo" onSubmit={Submit}>
+    <form className="mainglobalinpage" onSubmit={Submit}>
       <Backbutton />
       <div>
-        <h2>اطلاعات ساختمان</h2>
+        <h1 className="globalpageheader">اطلاعات ساختمان</h1>
       </div>
-      <div className="forminput">
+      <div className="globalpageform">
         <Input
-          className="input-textphone "
+          className="input-label input-textphone"
           label="نام ساختمان"
           type="text"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={setName}
         />
         <Input
           label="تعداد بلوک"
           type="number"
-          className="input-number"
+          className="input-label input-number"
           value={blockCount}
-          onChange={(e) => setBlockCount(e.target.value)}
+          onChange={setBlockCount}
         />
         <Input
           label="تعداد طبقات"
           type="number"
-          className="input-number"
+          className="input-label input-number"
           value={floorCount}
-          onChange={(e) => setFloorCount(e.target.value)}
+          onChange={setFloorCount}
         />
         <Input
           label="تعداد واحدها"
           type="number"
-          className="input-number"
+          className="input-label input-number"
           value={unitCount}
-          onChange={(e) => setUnitCount(e.target.value)}
+          onChange={setUnitCount}
         />
         <Input
           label="کدپستی"
           type="number"
-          className="post inputinfo"
+          className={`input-label  ${styles.post}`}
           value={postalCode}
-          onChange={(e) => setPostalCode(e.target.value)}
+          onChange={setPostalCode}
         />
         <Input
-          className="input-textphone"
+          className="input-label input-textphone"
           label="آدرس"
           type="textarea"
           value={address}
-          onChange={(e) => setAddress(e.target.value)}
+          onChange={setAddress}
         />
       </div>
       <Button
@@ -183,41 +173,41 @@ function Buildinginfo() {
       >
         انتخاب لوکیشن
       </Button>
-      <Switch
-        id="gym"
-        label="سالن ورزشی"
-        checked={hasGym}
-        onChange={(e) => setHasGym(e.target.checked)}
-      />
-      <Switch
-        id="pool"
-        label="استخر، سونا و جکوزی"
-        checked={hasPool}
-        onChange={(e) => setHasPool(e.target.checked)}
-      />
-      <Switch
-        id="meeting"
-        label="سالن اجتماعات"
-        checked={hasMeetingHall}
-        onChange={(e) => setHasMeetingHall(e.target.checked)}
-      />
-      <Switch
-        id="roof"
-        label="روف گاردن"
-        checked={hasRoofGarden}
-        onChange={(e) => setHasRoofGarden(e.target.checked)}
-      />
-      <div className="fileinput">
+      <div className={styles.formswitch}>
+        <Switch
+          id="gym"
+          label="سالن ورزشی"
+          checked={hasGym}
+          onChange={setHasGym}
+        />
+        <Switch
+          id="pool"
+          label="استخر، سونا و جکوزی"
+          checked={hasPool}
+          onChange={setHasPool}
+        />
+        <Switch
+          id="meeting"
+          label="سالن اجتماعات"
+          checked={hasMeetingHall}
+          onChange={setHasMeetingHall}
+        />
+        <Switch
+          id="roof"
+          label="روف گاردن"
+          checked={hasRoofGarden}
+          onChange={setHasRoofGarden}
+        />
+      </div>
+      <div className={styles.fileinput}>
         <input
           id="fileimage"
           type="file"
-          label=" آپلود تصویر ساختمان"
           onChange={(e) => setImage(e.target.files[0])}
         />
-        <label htmlFor="fileimage">آپلود تصویر ساختمان</label>
+        <label htmlFor="fileimage"> آپلود تصویر ساختمان </label>
       </div>
-
-      <Button type="submit" className="simplebutton-wh">
+      <Button type="submit" className="simplebutton-wh position-fx">
         ثبت
       </Button>
     </form>

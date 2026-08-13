@@ -1,0 +1,28 @@
+.mainShowresevation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.header {
+  font-size: 1rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 23rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #f7f7f7;
+  padding: .8rem ;
+  border-radius: 1rem;
+}
+
+

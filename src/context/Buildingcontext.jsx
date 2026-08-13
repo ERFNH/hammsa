@@ -1,33 +1,57 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { getMyBuilding } from "../api/auth";
+import { getCurrentBuilding, myRole } from "../api/auth";
 const Buildingcontext = createContext();
 export function Buildingcontrol({ children }) {
   const [activeBuilding, setActiveBuilding] = useState(null);
+  const [userRole, setUserRole] = useState(null);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    getMyBuilding()
-      .then((response) => {
-        const buildings = response.data;
-        const savedId = localStorage.getItem("activeBuildingId");
-        let selectedBuilding;
-        if (savedId) {
-          selectedBuilding = buildings.find(
-            (building) => building.id == savedId,
-          );
+    let isMounted = true;
+    async function loadData() {
+      setLoading(true);
+      try {
+        const buildingRes = await getCurrentBuilding();
+        const buildingData = buildingRes?.data;
+        if (isMounted) {
+          setActiveBuilding(buildingData);
         }
-        if (!selectedBuilding && buildings.length > 0) {
-          selectedBuilding = buildings[0];
+        const buildingId = buildingData?.buildingId;
+        if (buildingId) {
+          const roleRes = await myRole(buildingId);
+          const role = typeof roleRes.data === "number" ? roleRes.data : roleRes.data?.role;
+          if (isMounted) {
+            setUserRole(role);
+          }
+        } else {
+          if (isMounted) setUserRole(null);
         }
-        setActiveBuilding(selectedBuilding);
-        if (selectedBuilding) {
-          localStorage.setItem("activeBuildingId", selectedBuilding.id);
+      } catch (err) {
+        console.log("Error fetching data:", err);
+        if (isMounted) {
+          setActiveBuilding(null);
+          setUserRole(null);
         }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    }
+    loadData();
+    return () => {
+      isMounted = false;
+    };
   }, []);
   return (
-    <Buildingcontext.Provider value={{ activeBuilding, setActiveBuilding }}>
+    <Buildingcontext.Provider
+      value={{
+        activeBuilding,
+        setActiveBuilding,
+        userRole,
+        setUserRole,
+        loading,
+      }}
+    >
       {children}
     </Buildingcontext.Provider>
   );

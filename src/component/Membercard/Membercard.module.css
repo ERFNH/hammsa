@@ -1,0 +1,30 @@
+.card {
+  background-color: #ffffff;
+  padding: .8rem .5rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+.cardrow{
+  display: flex;
+  gap: 4.6rem;
+  justify-content: center;
+  box-shadow: 0px 0px 4px #848484;
+  height: auto;
+  padding: 1rem ;
+  border-radius: 1rem;
+  align-items: center;
+}
+.buttonrow{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.simplebutton {
+  color: #bd7b09;
+
+}
+
+

@@ -1,0 +1,20 @@
+Select {
+  font-family: "Vazirmatn", sans-serif;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.select-group {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  direction: rtl;
+}
+.select-group select {
+  background-color: #d5b072;
+  border: none;
+  height: 2.3rem;
+  border-radius: 0.8rem;
+  text-align: center;
+}
+
