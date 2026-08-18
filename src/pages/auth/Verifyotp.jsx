@@ -13,7 +13,6 @@ function VerifyOtp() {
   const submit = async () => {
     console.log("phone:", phone);
     console.log("otp:", otp);
-
     if (!phone) {
       alert("شماره موبایل پیدا نشد.");
       navigate("/");
@@ -25,6 +24,8 @@ function VerifyOtp() {
     }
     try {
       const response = await verifyOtp(phone, otp);
+      console.log("LOGIN PHONE:", phone);
+      console.log("NEW TOKEN:", response.data.token);
       localStorage.setItem("token", response.data.token);
       console.log(localStorage.getItem("token"));
       navigate("/Welcome");
