@@ -11,6 +11,10 @@ export function Buildingcontrol({ children }) {
       setLoading(true);
       try {
         const buildingRes = await getCurrentBuilding();
+        console.log("building response:", buildingRes);
+        console.log("building data:", buildingRes?.data);
+        const token = localStorage.getItem("token");
+        console.log("TOKEN:", token);
         const buildingData = buildingRes?.data;
         if (isMounted) {
           setActiveBuilding(buildingData);
@@ -18,7 +22,10 @@ export function Buildingcontrol({ children }) {
         const buildingId = buildingData?.buildingId;
         if (buildingId) {
           const roleRes = await myRole(buildingId);
-          const role = typeof roleRes.data === "number" ? roleRes.data : roleRes.data?.role;
+          const role =
+            typeof roleRes.data === "number"
+              ? roleRes.data
+              : roleRes.data?.role;
           if (isMounted) {
             setUserRole(role);
           }
