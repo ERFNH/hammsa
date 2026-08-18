@@ -25,6 +25,8 @@ function Welcome() {
           const myUnits = unitsRes.data?.userUnitDetails || [];
           if (myUnits.length > 0 && myUnits[0]?.unitId) {
             const unitId = myUnits[0].unitId;
+            console.log("BUILDING ID:", activeBuilding?.buildingId);
+            console.log("UNIT ID:", unitId);
             const chargeRes = await getcurretncharge(unitId);
             setCharge({
               amount: chargeRes.data?.amount || 0,
@@ -39,7 +41,7 @@ function Welcome() {
       }
     };
     fetchData();
-  }, [activeBuilding ]);
+  }, [activeBuilding]);
   const isProfileComplete = userInfo?.firstName && userInfo?.lastName;
   if (loading) {
     return (
