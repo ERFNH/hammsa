@@ -4,20 +4,20 @@ import Input from "../component/Input/Input";
 import Button from "../component/Button/Button";
 import { useState } from "react";
 import { putUserprofile } from "../api/auth";
+import { useNavigate } from "react-router-dom";
 function Publicprofile() {
-  const [firstname, setFirstname] = useState();
-  const [lastname, setLastname] = useState();
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const navigate = useNavigate();
   const handlesubmit = async (e) => {
     e.preventDefault();
     console.log("دیتای ارسالی:", { firstName: firstname, lastName: lastname });
     try {
-      const response = await putUserprofile({
-        firstName: firstname,
-        lastName: lastname,
-      });
-
+      const response = await putUserprofile(firstname, lastname);
       alert("اطلاعات شما ثبت شد");
-    } catch {
+      navigate("/Welcome");
+    } catch (error) {
+      console.error("خطای کامل:", error.response?.data);
       alert("خطا در ثبت اطلاعات");
     }
   };

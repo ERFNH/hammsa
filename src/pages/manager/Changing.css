@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  min-height: 100vh;
 }
 .thisbuilding-header {
   font-size: 1.5rem;

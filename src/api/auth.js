@@ -232,6 +232,41 @@ export const postCreateExpense = (buildingId, category, title, amount) => {
   });
 };
 
+export const getExpencseList = (buildingId) => {
+  return api.get(`/Charge/${buildingId}/expense`);
+};
+
+export const deleteExpence = (buildingId, expenseId) => {
+  return api.delete(`/Charge/${buildingId}/delete-expense/${expenseId}`);
+};
+export const getExpenseSummary = (buildingId) => {
+  return api.get(`/Charge/${buildingId}/expense-summary`);
+};
+
+export const putUpdateExpence = (
+  buildingId,
+  expenseId,
+  category,
+  title,
+  amount,
+) => {
+  return api.put(`/Charge/update-expense`, {
+    buildingId,
+    expenseId,
+    category,
+    title,
+    amount,
+  });
+};
+
+export const getPaid = (buildingId) => {
+  return api.get(`/Charge/${buildingId}/paid`);
+};
+
+export const getDashboardFinancials = () => {
+  return api.get(`/Charge/dashboard-financials`);
+};
+
 //poll
 export const Newpoll = (
   buildingId,
@@ -292,6 +327,7 @@ export const putUserprofile = (firstName, lastName) => {
     lastName,
   });
 };
+
 export const getUserprofile = () => {
   return api.get(`/User/profile`);
 };

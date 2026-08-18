@@ -30,6 +30,9 @@ body {
   font-family: "Vazirmatn", sans-serif;
   margin: 0 auto;
 }
+li {
+  list-style: none;
+}
 .globalprofile-name {
   display: flex;
   align-items: center;
@@ -110,7 +113,7 @@ body {
   z-index: 1000;
 }
 
-.edit-member-modal {
+/*.edit-member-modal {
   width: 90%;
   max-width: 37.5rem;
   height: 100%;
@@ -120,4 +123,14 @@ body {
   border-radius: 1.2rem;
   padding: 1.4rem;
 }
-
+  */
+.searcHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 1rem;
+}

@@ -33,9 +33,12 @@ import Newtenant from "./pages/owner/Newtenant";
 import Transfer from "./pages/manager/Transfer";
 import NewCowner from "./pages/owner/NewCowner";
 import NewCotenant from "./pages/tenant/NewCotenant";
-import ShowCoMember from "./component/ShowCoMember/ShowCoMember"
-import FixCost from "./pages/manager/Costs/FixCost"
-import ShowFixCost from "./pages/Finance/ShowFixCost"
+import ShowCoMember from "./component/ShowCoMember/ShowCoMember";
+import FixCost from "./pages/manager/Costs/FixCost";
+import ShowFixCost from "./pages/Finance/ShowFixCost";
+import ShowNewCost from "./pages/manager/Costs/ShowNewCost";
+import ShowTransaction from "./pages/manager/ShowTransaction";
+import FinanceReport from "./pages/Finance/FinanceReport";
 function App() {
   return (
     <BrowserRouter>
@@ -69,6 +72,7 @@ function App() {
             <Route path="/Showancmt" element={<Showancmt />} />
             <Route path="/Newrepair" element={<Newrepair />} />
             <Route path="/Showrepair" element={<Showrepair />} />
+            <Route path="/ShowTransaction" element={<ShowTransaction />} />
             <Route path="/Poll" element={<Poll />} />
             <Route path="/Showpoll" element={<Showpoll />} />
             <Route path="/Reservation" element={<Reservation />} />
@@ -77,6 +81,7 @@ function App() {
             <Route path="/Publicprofile" element={<Publicprofile />} />
             <Route path="/Costspage" element={<Costspage />} />
             <Route path="/Newcost" element={<Newcost />} />
+            <Route path="/ShowNewCost" element={<ShowNewCost />} />
             <Route path="/Setcharge" element={<Setcharge />} />
             <Route path="/ownerprofile" element={<Ownerprofile />} />
             <Route path="/NewCowner" element={<NewCowner />} />
@@ -95,7 +100,10 @@ function App() {
             <Route path="/ShowCoMember" element={<ShowCoMember />} />
             <Route path="/Financepage" element={<Financepage />} />
             <Route path="/FixCost" element={<FixCost />} />
+            <Route path="/FinanceReport" element={<FinanceReport />} />
             <Route path="/ShowFixCost" element={<ShowFixCost />} />
+            <Route path="/Tenantprofile" element={<Tenantprofile />} />
+            {/*
             <Route
               path="/Tenantprofile"
               element={
@@ -103,7 +111,7 @@ function App() {
                   <Tenantprofile />
                 </Rolecomponent>
               }
-            />
+            />*/}
             <Route path="/NewCotenant" element={<NewCotenant />} />
           </Route>
         </Routes>

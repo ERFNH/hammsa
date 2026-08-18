@@ -54,10 +54,9 @@ function Transfer() {
   return (
     <main className={styles.main}>
       <Backbutton />
-      <div className={styles.header}>
+      <div className="searcHeader">
         <h1 className="globalpageheader">انتقال مدیریت</h1>
         <Search
-          className={styles.search}
           value={searchTerm}
           onChange={setSearchTerm}
         />

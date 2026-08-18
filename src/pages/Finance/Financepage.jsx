@@ -89,7 +89,7 @@ const handlePay = async () => {
             <Button className="btntobottom" onClick={() => navigate("/ShowFixCost")}>
              فاکتور هزینه های ثابت ساختمان
             </Button>
-            <Button className="btntobottom" onClick={() => navigate("/Poll")}>
+            <Button className="btntobottom" onClick={() => navigate("/FinanceReport")}>
               گزارش مالی
             </Button>
             <Button className="btntobottom" onClick={() => navigate("/Poll")}>

@@ -106,7 +106,7 @@ function ManagerProfile() {
         >
           لیست مالکین و مستاجرین
         </Button>
-        <Button className="btntobottom" onClick={() => navigate("/Newowner")}>
+        <Button className="btntobottom" onClick={() => navigate("/ShowTransaction")}>
           تراکنش ها
         </Button>
         <Button className="exit" onClick={handlelogout}>

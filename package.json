@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^1.18.1",
     "date-fns-jalali": "^4.4.0-0",
+    "jspdf": "^4.2.1",
     "moment-jalaali": "^0.10.5",
     "persian-date-kit": "^1.2.0",
     "react": "^19.2.7",

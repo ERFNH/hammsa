@@ -44,7 +44,7 @@ function Tenantprofile() {
           تغییر ساختمان
         </Button>
       </div>
-      <Button onClick={handlelogout} className="position-fx">
+      <Button onClick={handlelogout} className="exit position-fx">
         خروج از حساب کاربری
       </Button>
     </main>

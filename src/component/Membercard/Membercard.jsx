@@ -47,7 +47,7 @@ function MemberCard({ member, unit, onStatusClick, allowEdit = true, onEdit }) {
             </div>
           )}
         </div>
-        <span className={styles.name}>{member.fullName}لل</span>
+        <span className={styles.name}>{member.fullName}</span>
       </div>
       <div className={styles.buttonrow}>
         {/*{isActive && (

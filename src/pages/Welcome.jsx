@@ -39,7 +39,7 @@ function Welcome() {
       }
     };
     fetchData();
-  }, [activeBuilding]);
+  }, [activeBuilding ]);
   const isProfileComplete = userInfo?.firstName && userInfo?.lastName;
   if (loading) {
     return (

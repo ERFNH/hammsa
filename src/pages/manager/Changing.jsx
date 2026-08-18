@@ -46,7 +46,7 @@ function Changing() {
         </Button>
       ))}
         <Button
-          className="simplebutton-br"
+          className="simplebutton-br position-fx"
           onClick={() => navigate("/Buildinginfo")}
         >
           ثبت ساختمان جدید

@@ -1,0 +1,23 @@
+.liststyle {
+  width: 19rem;
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.listrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.btn {
+  display: flex;
+  gap: 1rem;
+  direction: ltr;
+}
+                                       
+.editButtons{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
