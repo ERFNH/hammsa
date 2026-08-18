@@ -7,7 +7,7 @@ import { postResavation, getReservedDates } from "../api/auth";
 import { useBuilding } from "../context/Buildingcontext";
 import { useState, useEffect } from "react";
 function Reservation() {
-  const { activeBuilding } = useBuilding();
+  const { activeBuilding, loading: buildingLoading } = useBuilding();
   const buildingId = activeBuilding?.buildingId;
   const [facilityType, setFacilityType] = useState(0);
   const [reservetime, setReservetime] = useState(null);
@@ -15,16 +15,16 @@ function Reservation() {
   const [reservedDates, setReservedDates] = useState([]);
   useEffect(() => {
     const fetchReservedDates = async () => {
+      if (buildingLoading) return;
       if (!buildingId) {
-        console.log("buildingId موجود نیست");
+        console.log("ساختمان برای کاربر پیدا نشد");
         return;
       }
       try {
         const response = await getReservedDates(buildingId);
+
         if (Array.isArray(response.data)) {
           setReservedDates(response.data);
-        } else if (Array.isArray(response)) {
-          setReservedDates(response);
         } else {
           setReservedDates([]);
         }
@@ -34,7 +34,7 @@ function Reservation() {
       }
     };
     fetchReservedDates();
-  }, [buildingId]);
+  }, [buildingId, buildingLoading]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!buildingId) {
@@ -114,7 +114,9 @@ function Reservation() {
           <Button type="submit" className="simplebutton-wh ">
             رزرو
           </Button>
-          <a href="/Showresevation" className="myreserve">رزرو‌های من</a>
+          <a href="/Showresevation" className="myreserve">
+            رزرو‌های من
+          </a>
         </div>
       </form>
     </main>

@@ -1,5 +1,10 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { getCurrentBuilding, myRole } from "../api/auth";
+import {
+  getCurrentBuilding,
+  getMyBuilding,
+  myRole,
+  setCurrentBuilding,
+} from "../api/auth";
 const Buildingcontext = createContext();
 export function Buildingcontrol({ children }) {
   const [activeBuilding, setActiveBuilding] = useState(null);
@@ -10,30 +15,52 @@ export function Buildingcontrol({ children }) {
     async function loadData() {
       setLoading(true);
       try {
-        const buildingRes = await getCurrentBuilding();
-        console.log("building response:", buildingRes);
-        console.log("building data:", buildingRes?.data);
-        const token = localStorage.getItem("token");
-        console.log("TOKEN:", token);
-        const buildingData = buildingRes?.data;
-        if (isMounted) {
-          setActiveBuilding(buildingData);
+        const myBuildingsRes = await getMyBuilding();
+        const buildings = myBuildingsRes?.data || [];
+        console.log("ساختمان من ", buildings);
+        if (!buildings.length) {
+          if (isMounted) {
+            setActiveBuilding(null);
+            setUserRole(null);
+          }
+          return;
         }
-        const buildingId = buildingData?.buildingId;
+        let currentBuilding = null;
+        try {
+          const currentRes = await getCurrentBuilding();
+          currentBuilding = currentRes?.data;
+        } catch (err) {
+          console.log("Current building not found");
+        }
+        if (!currentBuilding) {
+          currentBuilding = buildings[0];
+
+          await setCurrentBuilding({
+            buildingId: currentBuilding.buildingId,
+          });
+        }
+
+        if (isMounted) {
+          setActiveBuilding(currentBuilding);
+        }
+
+        const buildingId = currentBuilding?.buildingId;
+
         if (buildingId) {
           const roleRes = await myRole(buildingId);
+
           const role =
             typeof roleRes.data === "number"
               ? roleRes.data
               : roleRes.data?.role;
+
           if (isMounted) {
             setUserRole(role);
           }
-        } else {
-          if (isMounted) setUserRole(null);
         }
       } catch (err) {
-        console.log("Error fetching data:", err);
+        console.error("Error fetching building data:", err);
+
         if (isMounted) {
           setActiveBuilding(null);
           setUserRole(null);
