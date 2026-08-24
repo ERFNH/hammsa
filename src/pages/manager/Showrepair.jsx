@@ -38,9 +38,9 @@ function ShowRepair() {
           {repairs.length === 0 ? (
             <p className="loadingtext">خرابی ثبت‌ شده‌ای وجود ندارد.</p>
           ) : (
-            <Glassybackground>
-              <div className="showrepair-container">
-                {repairs.map((item) => (
+            <div className="showrepair-container">
+              {repairs.map((item) => (
+                <Glassybackground>
                   <div className="repair-card" key={item.id}>
                     <div className="repair-date">
                       {new Date(item.createdAt).toLocaleDateString("fa-IR")}
@@ -70,9 +70,9 @@ function ShowRepair() {
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            </Glassybackground>
+                </Glassybackground>
+              ))}
+            </div>
           )}
         </>
       )}

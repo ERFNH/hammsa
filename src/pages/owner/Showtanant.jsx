@@ -10,7 +10,6 @@ function Showtanant() {
   const { activeBuilding } = useBuilding();
   const [tenants, setTenants] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [editingMember, setEditingMember] = useState(null);
   useEffect(() => {
     if (activeBuilding?.buildingId) {
       setLoading(true);

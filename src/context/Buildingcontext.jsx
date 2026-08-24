@@ -13,14 +13,19 @@ export function Buildingcontrol({ children }) {
   useEffect(() => {
     let isMounted = true;
     async function loadData() {
+      //console.log(
+      //  "LOAD BUILDING START",
+      //  Date.now(),
+      // localStorage.getItem("token"),
+      // );
       setLoading(true);
       try {
         const myBuildingsRes = await getMyBuilding();
-        console.log("TOKEN USED:", localStorage.getItem("token"));
-        console.log("MY BUILDINGS STATUS:", myBuildingsRes.status);
-        console.log("MY BUILDINGS:", myBuildingsRes.data);
+        //console.log("TOKEN USED:", localStorage.getItem("token"));
+        //console.log("MY BUILDINGS STATUS:", myBuildingsRes.status);
+        //console.log("MY BUILDINGS:", myBuildingsRes.data);
         const buildings = myBuildingsRes?.data || [];
-        console.log("ساختمان من ", buildings);
+        //console.log("ساختمان من ", buildings);
         if (!buildings.length) {
           if (isMounted) {
             setActiveBuilding(null);

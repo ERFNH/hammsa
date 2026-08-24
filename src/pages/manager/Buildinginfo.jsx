@@ -87,7 +87,6 @@ function Buildinginfo() {
         response = await updateBuilding(activeBuilding.id, buildingData);
       } else {
         const formData = new FormData();
-
         formData.append("Name", name);
         formData.append("BlockCount", blockCount);
         formData.append("FloorCount", floorCount);
@@ -106,8 +105,7 @@ function Buildinginfo() {
         response = await createBuilding(formData);
       }
       console.log(response.data);
-      alert("اطلاعات با موفقیت ثبت شد.");
-
+      alert("اطلاعات با موفقیت ثبت شد");
       setTimeout(() => {
         navigate("/Managerprofile");
       }, 1000);
@@ -199,7 +197,7 @@ function Buildinginfo() {
           onChange={setHasRoofGarden}
         />
       </div>
-      <div className={styles.fileinput}>
+      <div className="fileinput">
         <input
           id="fileimage"
           type="file"

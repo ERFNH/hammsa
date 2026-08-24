@@ -18,15 +18,15 @@ function Welcome() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const userRes = await getUserprofile();
-        setUserInfo(userRes.data);
+        //const userRes = await getUserprofile();
+        //setUserInfo(userRes.data);
         if (activeBuilding?.buildingId) {
           const unitsRes = await getMyunits(activeBuilding.buildingId);
           const myUnits = unitsRes.data?.userUnitDetails || [];
           if (myUnits.length > 0 && myUnits[0]?.unitId) {
             const unitId = myUnits[0].unitId;
-            console.log("BUILDING ID:", activeBuilding?.buildingId);
-            console.log("UNIT ID:", unitId);
+            //console.log("BUILDING ID:", activeBuilding?.buildingId);
+            //console.log("UNIT ID:", unitId);
             const chargeRes = await getcurretncharge(unitId);
             setCharge({
               amount: chargeRes.data?.amount || 0,
@@ -47,6 +47,9 @@ function Welcome() {
     return (
       <div className="loadingtext">در حال بررسی اطلاعات لطفا شکیبا باشید </div>
     );
+  }
+  if (!activeBuilding && !loading) {
+    return <p className="loadingtext">در حال لود شدن اطلاعات ساختمان</p>;
   }
   return (
     <main className="mianwelcome">

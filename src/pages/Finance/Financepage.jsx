@@ -37,28 +37,28 @@ function Finance() {
     };
     fetchData();
   }, [activeBuilding]);
-const handlePay = async () => {
-  if (!charge.id) {
-    alert("شناسه شارژ پیدا نشد.");
-    return;
-  }
-  try {
-    setIsPaying(true);
-    const response = await postPayCharge(charge.id);
-    let rawUrl = response.data?.paymentUrl;
-    if (rawUrl && typeof rawUrl === "string") {
-      const fixedUrl = rawUrl.replace("?authority=", "&authority=");
-      window.location.href = fixedUrl;
-    } else {
-      alert("آدرس درگاه پرداخت دریافت نشد.");
+  const handlePay = async () => {
+    if (!charge.id) {
+      alert("شناسه شارژ پیدا نشد.");
+      return;
     }
-  } catch (err) {
-    console.error("خطا در درخواست پرداخت:", err);
-    alert("مشکلی در ارتباط با درگاه پرداخت به وجود آمد.");
-  } finally {
-    setIsPaying(false);
-  }
-};
+    try {
+      setIsPaying(true);
+      const response = await postPayCharge(charge.id);
+      let rawUrl = response.data?.paymentUrl;
+      if (rawUrl && typeof rawUrl === "string") {
+        const fixedUrl = rawUrl.replace("?authority=", "&authority=");
+        window.location.href = fixedUrl;
+      } else {
+        alert("آدرس درگاه پرداخت دریافت نشد.");
+      }
+    } catch (err) {
+      console.error("خطا در درخواست پرداخت:", err);
+      alert("مشکلی در ارتباط با درگاه پرداخت به وجود آمد.");
+    } finally {
+      setIsPaying(false);
+    }
+  };
   return (
     <main className="mainglobalinpage">
       {loading ? (
@@ -68,10 +68,10 @@ const handlePay = async () => {
           <Glassybackground>
             <header className={styles.headerfinance}>
               <div className={styles.headerfirst}>
+                <p>شارژ این ماه</p>
                 <h1 className="globallightbackground">
                   {charge.amount.toLocaleString()} تومان
                 </h1>
-                <p>شارژ این ماه</p>
               </div>
               {!charge.isPaid && (
                 <Button
@@ -86,10 +86,16 @@ const handlePay = async () => {
           </Glassybackground>
 
           <div className="buttonglobalstyle">
-            <Button className="btntobottom" onClick={() => navigate("/ShowFixCost")}>
-             فاکتور هزینه های ثابت ساختمان
+            <Button
+              className="btntobottom"
+              onClick={() => navigate("/ShowFixCost")}
+            >
+              فاکتور هزینه های ثابت ساختمان
             </Button>
-            <Button className="btntobottom" onClick={() => navigate("/FinanceReport")}>
+            <Button
+              className="btntobottom"
+              onClick={() => navigate("/FinanceReport")}
+            >
               گزارش مالی
             </Button>
             <Button className="btntobottom" onClick={() => navigate("/Poll")}>

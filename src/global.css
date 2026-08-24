@@ -43,10 +43,6 @@ li {
   height: 3rem;
 }
 
-.loading-Rolecomponent {
-  text-align: center;
-}
-
 .mainglobalinpage {
   display: flex;
   flex-direction: column;
@@ -133,4 +129,39 @@ li {
   top: 0;
   width: 100%;
   padding: 1rem;
+}
+
+.fileinput input {
+  display: none;
+}
+
+.fileinput label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 23rem;
+  height: 2.55rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  background: #d5b1726f;
+  transition: 0.2s;
+}
+
+.cart {
+  max-width: 100%;
+  width: 20rem;
+}
+.cartrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  direction: rtl;
+}
+.listcart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.borderbottom{
+  border-bottom: 1px solid black;
 }

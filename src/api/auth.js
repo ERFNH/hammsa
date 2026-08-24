@@ -263,8 +263,8 @@ export const getPaid = (buildingId) => {
   return api.get(`/Charge/${buildingId}/paid`);
 };
 
-export const getDashboardFinancials = () => {
-  return api.get(`/Charge/dashboard-financials`);
+export const getDashboardFinancials = (buildingId) => {
+  return api.get(`/Charge/${buildingId}/dashboard-financials`);
 };
 
 //poll
@@ -330,4 +330,76 @@ export const putUserprofile = (firstName, lastName) => {
 
 export const getUserprofile = () => {
   return api.get(`/User/profile`);
+};
+
+//service
+export const postCreatLocalService = (
+  buildingId,
+  category,
+  title,
+  description,
+  providerName,
+  contactPhone,
+  workingHours,
+) => {
+  return api.post(`/BuildingServices/create-local-service`, {
+    buildingId,
+    category,
+    title,
+    description,
+    providerName,
+    contactPhone,
+    workingHours,
+  });
+};
+export const getLocalService = (buildingId) => {
+  return api.get(`/BuildingServices/${buildingId}/get-local-service-list`);
+};
+
+export const getLocalServiceDitail = (localServiseId) => {
+  return api.get(
+    `/BuildingServices/${localServiseId}/get-local-service-details`,
+  );
+};
+export const postLocalRate = (localServiceId, score) => {
+  return api.post(`/BuildingServices/rate-local-service`, {
+    localServiceId,
+    score,
+  });
+};
+
+export const postListingService = (formData) => {
+  return api.post("/BuildingServices/create-listing", formData);
+};
+
+export const getListingList = (buildingId) => {
+  return api.get(`/BuildingServices/${buildingId}/get-listing-list`);
+};
+
+export const getListingDetail = (listingId) => {
+  return api.get(`/BuildingServices/${listingId}/get-listing-details`);
+};
+
+export const getMyListing = (buildingId) => {
+  return api.get(`/BuildingServices/${buildingId}/get-my-listing`);
+};
+
+export const delMyListing = (listingId) => {
+  return api.delete(`/BuildingServices/${listingId}/delete-listing`);
+};
+
+export const postCreatGroupBuy = (
+  buildingId,
+  title,
+  minimumQuantity,
+  price,
+  deadline,
+) => {
+  return api.post(`/BuildingServices/create-group-buying`, {
+    buildingId,
+    title,
+    minimumQuantity,
+    price,
+    deadline,
+  });
 };

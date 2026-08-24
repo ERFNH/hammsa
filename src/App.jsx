@@ -39,6 +39,16 @@ import ShowFixCost from "./pages/Finance/ShowFixCost";
 import ShowNewCost from "./pages/manager/Costs/ShowNewCost";
 import ShowTransaction from "./pages/manager/ShowTransaction";
 import FinanceReport from "./pages/Finance/FinanceReport";
+import ShowServPage from "./pages/ShowService/ShowServPage";
+import SubmitServPage from "./pages/SubmitService/SubmitServPage";
+import LocalService from "./pages/SubmitService/LocalService";
+import ShowLocalService from "./pages/ShowService/ShowLocalService";
+import ListingService from "./pages/SubmitService/ListingService";
+import LocalServiceDetail from "./pages/ShowService/LocalServiceDetail";
+import ShowListingService from "./pages/ShowService/ShowListingService";
+import ListingDetail from "./pages/ShowService/ListingDetail";
+import MyListing from "./pages/SubmitService/MyListing";
+import GroupService from "./pages/SubmitService/GroupService";
 function App() {
   return (
     <BrowserRouter>
@@ -113,6 +123,22 @@ function App() {
               }
             />*/}
             <Route path="/NewCotenant" element={<NewCotenant />} />
+            <Route path="/ShowServPage" element={<ShowServPage />} />
+            <Route path="/ShowLocalService" element={<ShowLocalService />} />
+            <Route
+              path="/LocalServiceDetail/:id"
+              element={<LocalServiceDetail />}
+            />
+            <Route
+              path="/ShowListingService"
+              element={<ShowListingService />}
+            />
+            <Route path="/SubmitServPage" element={<SubmitServPage />} />
+            <Route path="/ListingDetail/:id" element={<ListingDetail />} />
+            <Route path="/LocalService" element={<LocalService />} />
+            <Route path="/ListingService" element={<ListingService />} />
+            <Route path="/MyListing" element={<MyListing />} />
+            <Route path="/GroupService" element={<GroupService />} />
           </Route>
         </Routes>
       </Buildingcontrol>

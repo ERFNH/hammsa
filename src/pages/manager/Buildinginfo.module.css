@@ -16,18 +16,4 @@
   border: none;
   background: #d5b1726f;
 }
-.fileinput input {
-  display: none;
-}
 
-.fileinput label {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 23rem;
-  height: 2.55rem;
-  border-radius: 1rem;
-  cursor: pointer;
-  background: #d5b1726f;
-  transition: 0.2s;
-}

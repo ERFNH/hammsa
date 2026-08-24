@@ -157,7 +157,7 @@ function ShowTransaction() {
         )}
       </div>
       <Button
-        className="simplebutton-wh position-fx"
+        className="simplebutton-wh"
         onClick={downloadTransactionsPDF}
       >
         دریافت رسید تراکنش

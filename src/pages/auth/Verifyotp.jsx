@@ -5,7 +5,6 @@ import Button from "../../component/Button/Button";
 import Otpinput from "../../component/Otpinput/Otpinput";
 import { verifyOtp } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
-
 function VerifyOtp() {
   const navigate = useNavigate();
   const [otp, setOtp] = useState("");
@@ -24,17 +23,16 @@ function VerifyOtp() {
     }
     try {
       const response = await verifyOtp(phone, otp);
-      console.log("LOGIN PHONE:", phone);
-      console.log("NEW TOKEN:", response.data.token);
+      //console.log("LOGIN PHONE:", phone);
+      //console.log("NEW TOKEN:", response.data.token);
       localStorage.setItem("token", response.data.token);
-      console.log(localStorage.getItem("token"));
-      navigate("/Welcome");
+      //console.log(localStorage.getItem("token"));
+      window.location.href = "/Welcome";
     } catch (error) {
       console.log(error.response?.data);
       alert("کد تایید اشتباه است.");
     }
   };
-
   return (
     <main>
       <section className="Verify">
