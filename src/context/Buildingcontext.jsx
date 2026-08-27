@@ -42,21 +42,16 @@ export function Buildingcontrol({ children }) {
         }
         if (!currentBuilding) {
           currentBuilding = buildings[0];
-
           await setCurrentBuilding({
             buildingId: currentBuilding.buildingId,
           });
         }
-
         if (isMounted) {
           setActiveBuilding(currentBuilding);
         }
-
         const buildingId = currentBuilding?.buildingId;
-
         if (buildingId) {
           const roleRes = await myRole(buildingId);
-
           const role =
             typeof roleRes.data === "number"
               ? roleRes.data

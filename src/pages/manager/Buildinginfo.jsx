@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { useBuilding } from "../../context/Buildingcontext";
 import "../../global.css";
 function Buildinginfo() {
-  const { activeBuilding } = useBuilding();
+  const { activeBuilding, setActiveBuilding } = useBuilding();
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [blockCount, setBlockCount] = useState("");
@@ -105,6 +105,7 @@ function Buildinginfo() {
         response = await createBuilding(formData);
       }
       console.log(response.data);
+      setActiveBuilding(response.data);
       alert("اطلاعات با موفقیت ثبت شد");
       setTimeout(() => {
         navigate("/Managerprofile");

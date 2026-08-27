@@ -403,3 +403,9 @@ export const postCreatGroupBuy = (
     deadline,
   });
 };
+
+export const getGroupBuy = (buildingId) => {
+  return api.get(
+    `/BuildingServices/${buildingId}/get-building-group-buyings`,
+  );
+};

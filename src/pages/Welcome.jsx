@@ -18,24 +18,45 @@ function Welcome() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        //const userRes = await getUserprofile();
-        //setUserInfo(userRes.data);
+        const userRes = await getUserprofile();
+        setUserInfo(userRes.data);
         if (activeBuilding?.buildingId) {
+          console.log(":", activeBuilding.buildingId);
           const unitsRes = await getMyunits(activeBuilding.buildingId);
           const myUnits = unitsRes.data?.userUnitDetails || [];
+          console.log("کل پاسخ واحدها:", unitsRes.data);
+          console.log("myUnits فعلی:", myUnits);
           if (myUnits.length > 0 && myUnits[0]?.unitId) {
-            const unitId = myUnits[0].unitId;
-            //console.log("BUILDING ID:", activeBuilding?.buildingId);
-            //console.log("UNIT ID:", unitId);
-            const chargeRes = await getcurretncharge(unitId);
-            setCharge({
-              amount: chargeRes.data?.amount || 0,
-              isPaid: chargeRes.data?.isPaid || false,
-            });
+            const unitId = myUnits[0]?.unitId;
+            console.log("unitId ارسال‌شده:", unitId);
+            if (unitId) {
+              try {
+                const chargeRes = await getcurretncharge(unitId);
+                console.log("charge:", chargeRes.data);
+                setCharge({
+                  amount: chargeRes.data?.amount ?? 0,
+                  isPaid: chargeRes.data?.isPaid ?? false,
+                });
+              } catch (err) {
+                console.error(
+                  "خطای شارژ:",
+                  err.response?.status,
+                  err.response?.data,
+                );
+
+                setCharge({
+                  amount: 0,
+                  isPaid: false,
+                });
+              }
+            }
           }
         }
       } catch (err) {
         console.error("خطا در دریافت اطلاعات:", err);
+        console.error("وضعیت HTTP:", err.response?.status);
+        console.error("آدرس درخواست:", err.config?.url);
+        console.error("پاسخ سرور:", err.response?.data);
       } finally {
         setLoading(false);
       }
@@ -47,9 +68,6 @@ function Welcome() {
     return (
       <div className="loadingtext">در حال بررسی اطلاعات لطفا شکیبا باشید </div>
     );
-  }
-  if (!activeBuilding && !loading) {
-    return <p className="loadingtext">در حال لود شدن اطلاعات ساختمان</p>;
   }
   return (
     <main className="mianwelcome">

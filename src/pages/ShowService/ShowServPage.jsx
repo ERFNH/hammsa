@@ -22,7 +22,12 @@ function ShowServPage() {
         >
           خدمات
         </Button>
-        <Button className="btntobottom">خرید گروهی</Button>
+        <Button
+          className="btntobottom"
+          onClick={() => navigate("/ShowGroupSerive")}
+        >
+          خرید گروهی
+        </Button>
         <Button className="btntobottom">رویداد همسایگان</Button>
       </div>
     </main>
