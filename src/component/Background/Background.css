@@ -9,12 +9,14 @@
 .overlay {
   width: 25.5rem;
   /* height: 45rem;*/
+  max-height: 90vh;
   border-radius: 1.5rem;
   background: rgba(255, 255, 255, 0.466);
   backdrop-filter: blur(25px);
   scrollbar-width: none;
   padding-top: 1rem;
   transform: translateY(-3%);
+  overflow-y: auto;
   /*margin-bottom: 4rem;
   padding-bottom: calc(2rem + env(safe-area-inset-bottom));
   padding-top: calc(2.5rem + env(safe-area-inset-bottom));*/

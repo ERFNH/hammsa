@@ -411,3 +411,22 @@ export const getGroupBuy = (buildingId) => {
 export const joinGroupBuying = (groupBuyingId) => {
   return api.post(`/BuildingServices/join-group-buying/${groupBuyingId}`);
 };
+
+///resident
+export const createResidentEvent = (
+  buildingId,
+  category,
+  title,
+  description,
+  registrationFee,
+  sessions,
+) => {
+  return api.post(`/BuildingServices/create-resident-event`, {
+    buildingId,
+    category,
+    title,
+    description,
+    registrationFee,
+    sessions,
+  });
+};
