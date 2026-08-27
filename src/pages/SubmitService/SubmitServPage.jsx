@@ -29,7 +29,14 @@ function SubmitServPage() {
         </Button>
         <Button className="btntobottom">خرید های گروهی ایجاد شده</Button>
         <Button className="btntobottom">خریدهایی که پیوسته‌اید</Button>
-        <Button className="btntobottom">ثبت رویداد</Button>
+        <Button
+          className="btntobottom"
+          onClick={() => {
+            navigate("/ResisdentService");
+          }}
+        >
+          ثبت رویداد
+        </Button>
         <Button className="btntobottom">رویدادهای من </Button>
         <Button className="btntobottom">رویدادهایی که پیوسته‌اید</Button>
       </div>

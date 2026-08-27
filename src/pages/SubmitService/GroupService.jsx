@@ -24,6 +24,10 @@ function GroupService() {
         deadline,
       );
       alert("خرید گروهی ثبت شد");
+      title("")
+      price("")
+      deadline(null)
+      minimumQuantity("")
     } catch (err) {
       alert("خطا در ثبت");
     }

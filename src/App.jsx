@@ -50,6 +50,7 @@ import ListingDetail from "./pages/ShowService/ListingDetail";
 import MyListing from "./pages/SubmitService/MyListing";
 import GroupService from "./pages/SubmitService/GroupService";
 import ShowGroupSerive from "./pages/ShowService/ShowGroupSerive";
+import ResisdentService from "./pages/SubmitService/ResisdentService";
 function App() {
   return (
     <BrowserRouter>
@@ -141,6 +142,7 @@ function App() {
             <Route path="/ListingService" element={<ListingService />} />
             <Route path="/MyListing" element={<MyListing />} />
             <Route path="/GroupService" element={<GroupService />} />
+            <Route path="/ResisdentService" element={<ResisdentService />} />
           </Route>
         </Routes>
       </Buildingcontrol>

@@ -5,12 +5,10 @@ import { useBuilding } from "../../context/Buildingcontext";
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
 import Button from "../../component/Button/Button";
 import "../../global.css";
-
 function MyListing() {
   const { activeBuilding } = useBuilding();
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const getTypeLabel = (type) => {
     const types = {
       0: "فروش",
@@ -19,7 +17,6 @@ function MyListing() {
     };
     return types[type] || type;
   };
-
   useEffect(() => {
     const fetchList = async () => {
       if (!activeBuilding?.buildingId) {
@@ -38,7 +35,6 @@ function MyListing() {
     };
     fetchList();
   }, [activeBuilding]);
-
   const handleDelete = async (id) => {
     if (!window.confirm("آیا مطمئن هستید که می‌خواهید این آگهی را حذف کنید؟"))
       return;

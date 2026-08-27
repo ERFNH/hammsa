@@ -88,3 +88,11 @@ button {
   left: 50%;
   transform: translateX(-50%);
 }
+
+.flexbutton{
+  background: #d5b072;
+  border-radius: 0.9rem;
+  border: none;
+  height: 3rem;
+  width: 100%;
+}

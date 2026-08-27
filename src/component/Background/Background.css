@@ -13,7 +13,9 @@
   background: rgba(255, 255, 255, 0.466);
   backdrop-filter: blur(25px);
   scrollbar-width: none;
-  margin-bottom: 4rem;
+  padding-top: 1rem;
+  transform: translateY(-3%);
+  /*margin-bottom: 4rem;
   padding-bottom: calc(2rem + env(safe-area-inset-bottom));
-  padding-top: calc(2.5rem + env(safe-area-inset-bottom));
+  padding-top: calc(2.5rem + env(safe-area-inset-bottom));*/
 }

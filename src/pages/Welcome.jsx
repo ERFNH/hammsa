@@ -57,11 +57,13 @@ function Welcome() {
         console.error("وضعیت HTTP:", err.response?.status);
         console.error("آدرس درخواست:", err.config?.url);
         console.error("پاسخ سرور:", err.response?.data);
-      } finally {
-        setLoading(false);
       }
     };
     fetchData();
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 8000);
+     return () => clearTimeout(timer);
   }, [activeBuilding]);
   const isProfileComplete = userInfo?.firstName && userInfo?.lastName;
   if (loading) {

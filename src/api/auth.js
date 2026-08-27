@@ -405,7 +405,9 @@ export const postCreatGroupBuy = (
 };
 
 export const getGroupBuy = (buildingId) => {
-  return api.get(
-    `/BuildingServices/${buildingId}/get-building-group-buyings`,
-  );
+  return api.get(`/BuildingServices/${buildingId}/get-building-group-buyings`);
+};
+
+export const joinGroupBuying = (groupBuyingId) => {
+  return api.post(`/BuildingServices/join-group-buying/${groupBuyingId}`);
 };

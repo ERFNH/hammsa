@@ -3,7 +3,6 @@ import Footer from "../../component/footer/footer";
 import Background from "../../component/Background/Background";
 import BuildingImage from "../../assets/images/buildingimage.png";
 import { Outlet } from "react-router-dom";
-import styles from "./Otherlayout.module.css";
 function Otherlayout() {
   return (
     <div className="app">
@@ -13,7 +12,7 @@ function Otherlayout() {
             <Outlet />
           </main>
         </Background>
-        <Footer className={styles.footer} />
+        <Footer />
       </div>
     </div>
   );
