@@ -1,29 +1,22 @@
 .background {
   position: relative;
-
   width: 100%;
-  flex: 1;
   min-height: 0;
-
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
   display: flex;
   justify-content: center;
 
-  overflow: hidden;
 }
 
 .overlay {
   width: calc(100% - 32px);
   margin: 0.625rem 0 4.375rem 0;
-
   min-height: 0;
-
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.466);
   backdrop-filter: blur(25px);
-
-  overflow: hidden;
+  overflow: auto;
+  overscroll-behavior: contain;
 }
