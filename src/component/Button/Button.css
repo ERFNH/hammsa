@@ -32,14 +32,14 @@ button {
   background: #d5b072;
   border-radius: 0.9rem;
   border: none;
-  width: 22rem;
+  width: 20rem;
   height: 3rem;
 }
 .simplebutton-wh-co {
   background: #d5b1727c;
   border-radius: 0.8rem;
   border: none;
-  width: 23rem;
+  width: 21rem;
   height: 2.5rem;
 }
 .welcomebutton {
@@ -76,7 +76,7 @@ button {
   border: 1px solid white;
   text-align: center;
   color: black;
-  width: 23rem;
+  width: 21rem;
   border-radius: 2rem;
   height: 3rem;
   font-weight: 400;
