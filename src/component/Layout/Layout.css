@@ -4,8 +4,12 @@
   box-sizing: border-box;
 }
 
-body {
+html,body {
   background: #f5f5f5;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
 }
 
 .app {
