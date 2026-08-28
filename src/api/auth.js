@@ -412,6 +412,10 @@ export const joinGroupBuying = (groupBuyingId) => {
   return api.post(`/BuildingServices/join-group-buying/${groupBuyingId}`);
 };
 
+export const getMyGroupBuying = (buildingId) => {
+  return api.get(`/BuildingServices/${buildingId}/get-my-group-buyings`);
+};
+
 ///resident
 export const createResidentEvent = (
   buildingId,

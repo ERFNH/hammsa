@@ -51,6 +51,7 @@ import MyListing from "./pages/SubmitService/MyListing";
 import GroupService from "./pages/SubmitService/GroupService";
 import ShowGroupSerive from "./pages/ShowService/ShowGroupSerive";
 import ResisdentService from "./pages/SubmitService/ResisdentService";
+import MyGroupBuy from "./pages/SubmitService/MyGroupBuy";
 function App() {
   return (
     <BrowserRouter>
@@ -137,6 +138,7 @@ function App() {
             />
             <Route path="/ShowGroupSerive" element={<ShowGroupSerive />} />
             <Route path="/SubmitServPage" element={<SubmitServPage />} />
+            <Route path="/MyGroupBuy" element={<MyGroupBuy />} />
             <Route path="/ListingDetail/:id" element={<ListingDetail />} />
             <Route path="/LocalService" element={<LocalService />} />
             <Route path="/ListingService" element={<ListingService />} />

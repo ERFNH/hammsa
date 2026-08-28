@@ -20,7 +20,6 @@ function MyListing() {
   useEffect(() => {
     const fetchList = async () => {
       if (!activeBuilding?.buildingId) {
-        setLoading(false);
         return;
       }
       try {
@@ -51,7 +50,6 @@ function MyListing() {
     <main className="mainglobalinpage">
       <Backbutton />
       <h1 className="globalpageheader">آگهی‌های من</h1>
-
       {loading ? (
         <p className="loadingtext">در حال دریافت اطلاعات</p>
       ) : listings.length === 0 ? (

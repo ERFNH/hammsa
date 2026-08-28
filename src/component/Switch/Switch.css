@@ -1,6 +1,6 @@
 .switch-group {
   display: grid;
-  grid-template-columns: 22rem 1fr;
+  grid-template-columns: 21rem 1fr;
   direction: rtl;
 }
 .switch-group input {

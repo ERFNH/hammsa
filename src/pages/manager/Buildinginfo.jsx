@@ -206,7 +206,7 @@ function Buildinginfo() {
         />
         <label htmlFor="fileimage"> آپلود تصویر ساختمان </label>
       </div>
-      <Button type="submit" className="simplebutton-wh position-fx">
+      <Button type="submit" className="simplebutton-wh ">
         ثبت
       </Button>
     </form>

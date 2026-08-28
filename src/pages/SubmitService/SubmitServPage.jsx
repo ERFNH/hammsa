@@ -27,7 +27,14 @@ function SubmitServPage() {
         >
           ثبت خرید گروهی
         </Button>
-        <Button className="btntobottom">خرید های گروهی ایجاد شده</Button>
+        <Button
+          className="btntobottom"
+          onClick={() => {
+            navigate("/MyGroupBuy");
+          }}
+        >
+          خرید های گروهی ایجاد شده
+        </Button>
         <Button className="btntobottom">خریدهایی که پیوسته‌اید</Button>
         <Button
           className="btntobottom"

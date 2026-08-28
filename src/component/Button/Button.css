@@ -80,7 +80,6 @@ button {
   border-radius: 2rem;
   height: 3rem;
   font-weight: 400;
-  
 }
 
 .position-fx {
@@ -90,10 +89,17 @@ button {
   transform: translateX(-50%);
 }
 
-.flexbutton{
+.flexbutton {
   background: #d5b072;
   border-radius: 0.9rem;
   border: none;
   height: 3rem;
   width: 100%;
+}
+.glassybutton {
+  width: 100%;
+  height: 2.5rem;
+  background: #d5b072;
+  border-radius: 0.8rem;
+  border: none;
 }
