@@ -387,7 +387,7 @@ export const getMyListing = (buildingId) => {
 export const delMyListing = (listingId) => {
   return api.delete(`/BuildingServices/${listingId}/delete-listing`);
 };
-
+//gropbuying
 export const postCreatGroupBuy = (
   buildingId,
   title,
@@ -416,6 +416,18 @@ export const getMyGroupBuying = (buildingId) => {
   return api.get(`/BuildingServices/${buildingId}/get-my-group-buyings`);
 };
 
+export const deleteMyBuy = (grouBuyingId) => {
+  return api.delete(`/BuildingServices/delete-group-buying/${grouBuyingId}`);
+};
+
+export const getJoinBuy = (buildingId) => {
+  return api.get(`/BuildingServices/${buildingId}/get-joined-group-buyings`);
+};
+
+export const leaveGroupBuying = (groupBuyingId) => {
+  return api.post(`/BuildingServices/leave-group-buying/${groupBuyingId}`);
+};
+
 ///resident
 export const createResidentEvent = (
   buildingId,
@@ -423,7 +435,7 @@ export const createResidentEvent = (
   title,
   description,
   registrationFee,
-  sessions,
+  eventTime,
 ) => {
   return api.post(`/BuildingServices/create-resident-event`, {
     buildingId,
@@ -431,6 +443,28 @@ export const createResidentEvent = (
     title,
     description,
     registrationFee,
-    sessions,
+    eventTime,
   });
+};
+
+export const getResident = (buildingId) => {
+  return api.get(`/BuildingServices/${buildingId}/get-building-events`);
+};
+
+export const getResidentDitail = (eventId) => {
+  return api.get(`/BuildingServices/${eventId}/get-event-details`);
+};
+
+export const postRegisterRes = (eventId) => {
+  return api.post(`/BuildingServices/register-for-event?eventId=${eventId}`);
+};
+
+export const getMyResident = () => {
+  return api.get(`/BuildingServices/get-my-events`);
+};
+
+export const deleteMyResident = (eventId) => {
+  return api.delete(
+    `/BuildingServices/delete-resident-event?eventId=${eventId}`,
+  );
 };

@@ -5,7 +5,7 @@ import Backbutton from "../../component/Backbutton/Backbutton";
 import Datepick from "../../component/Datepick/Datepick";
 import { useBuilding } from "../../context/Buildingcontext";
 import "../../global.css";
-import { use, useState } from "react";
+import {  useState } from "react";
 function GroupService() {
   const { activeBuilding } = useBuilding();
   const [title, setTitle] = useState("");
@@ -24,10 +24,10 @@ function GroupService() {
         deadline,
       );
       alert("خرید گروهی ثبت شد");
-      title("")
-      price("")
-      deadline(null)
-      minimumQuantity("")
+      setTitle("")
+      setPrice("")
+      setDeadline(null)
+      setMinimumQuantity("")
     } catch (err) {
       alert("خطا در ثبت");
     }

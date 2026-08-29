@@ -52,6 +52,10 @@ import GroupService from "./pages/SubmitService/GroupService";
 import ShowGroupSerive from "./pages/ShowService/ShowGroupSerive";
 import ResisdentService from "./pages/SubmitService/ResisdentService";
 import MyGroupBuy from "./pages/SubmitService/MyGroupBuy";
+import JoinGroupBuy from "./pages/SubmitService/JoinGroupBuy";
+import ShowResidentService from "./pages/ShowService/ShowResidentService";
+import ResidentServiceDetail from "./pages/ShowService/ResidentServiceDetail";
+import MyResident from "./pages/SubmitService/MyResident";
 function App() {
   return (
     <BrowserRouter>
@@ -137,14 +141,24 @@ function App() {
               element={<ShowListingService />}
             />
             <Route path="/ShowGroupSerive" element={<ShowGroupSerive />} />
+            <Route
+              path="/ShowResidentService"
+              element={<ShowResidentService />}
+            />
+            <Route
+              path="/ResidentServiceDetail/:eventId"
+              element={<ResidentServiceDetail />}
+            />
             <Route path="/SubmitServPage" element={<SubmitServPage />} />
             <Route path="/MyGroupBuy" element={<MyGroupBuy />} />
+            <Route path="/JoinGroupBuy" element={<JoinGroupBuy />} />
             <Route path="/ListingDetail/:id" element={<ListingDetail />} />
             <Route path="/LocalService" element={<LocalService />} />
             <Route path="/ListingService" element={<ListingService />} />
             <Route path="/MyListing" element={<MyListing />} />
             <Route path="/GroupService" element={<GroupService />} />
             <Route path="/ResisdentService" element={<ResisdentService />} />
+            <Route path="/MyResident" element={<MyResident />} />
           </Route>
         </Routes>
       </Buildingcontrol>

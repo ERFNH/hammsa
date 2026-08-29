@@ -79,7 +79,7 @@ function ShowGroupSerive() {
                   <p className="cartrow">
                     <strong>قیمت:</strong> تومان{item.price}
                   </p>
-                  {!item.hasJoined && (
+                  {!item.hasJoined && !item.isMine && (
                     <Button
                       className="flexbutton"
                       onClick={() => handleJoin(item.id)}

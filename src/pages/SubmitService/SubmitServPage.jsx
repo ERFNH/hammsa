@@ -35,7 +35,14 @@ function SubmitServPage() {
         >
           خرید های گروهی ایجاد شده
         </Button>
-        <Button className="btntobottom">خریدهایی که پیوسته‌اید</Button>
+        <Button
+          className="btntobottom"
+          onClick={() => {
+            navigate("/joinGroupBuy");
+          }}
+        >
+          خریدهایی که پیوسته‌اید
+        </Button>
         <Button
           className="btntobottom"
           onClick={() => {
@@ -44,7 +51,9 @@ function SubmitServPage() {
         >
           ثبت رویداد
         </Button>
-        <Button className="btntobottom">رویدادهای من </Button>
+        <Button className="btntobottom" onClick={() => navigate("/MyResident")}>
+          رویدادهای من{" "}
+        </Button>
         <Button className="btntobottom">رویدادهایی که پیوسته‌اید</Button>
       </div>
     </main>

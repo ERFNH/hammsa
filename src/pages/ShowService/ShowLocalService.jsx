@@ -33,7 +33,6 @@ function ShowLocalService() {
     const fetchData = async () => {
       if (!activeBuilding) return;
       if (!activeBuilding.buildingId) {
-        setLoading(false);
         return;
       }
       try {
@@ -62,9 +61,9 @@ function ShowLocalService() {
           {filteredServices.length === 0 ? (
             <div style={{ display: "none" }}></div>
           ) : (
-            <div className="listcart">
+            <ul className="listcart">
               {filteredServices.map((item) => (
-                <div key={item.id} className="cart">
+                <li key={item.id} className="cart">
                   <Glassybackground>
                     <header>
                       <h3>{getCategoryName(item.category)}</h3>
@@ -77,9 +76,9 @@ function ShowLocalService() {
                       جزئیات
                     </Button>
                   </Glassybackground>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           )}
         </>
       )}

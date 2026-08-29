@@ -1,22 +1,17 @@
-import "../../global.css";
 import Backbutton from "../../component/Backbutton/Backbutton";
-import { useEffect, useState } from "react";
-import { useBuilding } from "../../context/Buildingcontext";
-import { getMyGroupBuying, deleteMyBuy } from "../../api/auth";
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
+import { getMyResident, deleteMyResident } from "../../api/auth";
+import { useEffect, useState } from "react";
 import Button from "../../component/Button/Button";
-function MyGroupBuy() {
-  const { activeBuilding } = useBuilding();
+import "../../global.css";
+function MyResident() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const fetchList = async () => {
-      if (!activeBuilding?.buildingId) {
-        return;
-      }
+    const fatchList = async () => {
       try {
         setLoading(true);
-        const response = await getMyGroupBuying(activeBuilding.buildingId);
+        const response = await getMyResident();
         setItems(response.data?.items || []);
       } catch (err) {
         console.error("خطا در دریافت لیست:", err);
@@ -24,32 +19,47 @@ function MyGroupBuy() {
         setLoading(false);
       }
     };
-    fetchList();
-  }, [activeBuilding]);
-  const handleDelete = async (groupBuyingId) => {
+    fatchList();
+  }, []);
+  const getCategoryName = (categoryId) => {
+    const categories = {
+      1: "آشپزی",
+      2: "آموزشی",
+      3: "زیبایی",
+      4: "فنی",
+      5: "ورزشی",
+      6: "کتابخوانی",
+      7: "والدین",
+    };
+    return categories[categoryId] || "سایر";
+  };
+  const handleDelete = async (eventId) => {
     try {
-      await deleteMyBuy(groupBuyingId);
-      alert("خرید گروهی با موفقیت حذف شد.");
-      setItems((prev) => prev.filter((item) => item.id !== groupBuyingId));
+      await deleteMyResident(eventId);
+      setItems((prev) => prev.filter((item) => item.id !== eventId));
+      alert("با موفقیت حذف شد");
     } catch (err) {
-      console.log(err);
-      alert("خطا در حذف خرید گروهی.");
+      console.error("خطا در حذف:", err);
+      alert("خطا در حذف");
     }
   };
   return (
     <main className="mainglobalinpage">
       <Backbutton />
-      <h1 className="globalpageheader">خرید‌های من</h1>
+      <h1 className="globalpageheader">رویدادهایی که ثبت نام کرده‌اید</h1>
       {loading ? (
         <p className="loadingtext">در حال دریافت اطلاعات</p>
       ) : items.length === 0 ? (
-        <p className="loadingtext">خرید‌ی برای نمایش وجود ندارد</p>
+        <p className="loadingtext">رویدادی برای نمایش وجود ندارد</p>
       ) : (
         <ul className="listcart">
           {items.map((item) => (
             <li key={item.id} className="cart">
               <Glassybackground>
                 <section className="listcart">
+                  <p className="cartrow">
+                    <strong>دسته بندی:</strong> {getCategoryName(item.category)}
+                  </p>
                   <p className="cartrow">
                     <strong>عنوان:</strong> {item.title}
                   </p>
@@ -73,4 +83,4 @@ function MyGroupBuy() {
     </main>
   );
 }
-export default MyGroupBuy;
+export default MyResident;

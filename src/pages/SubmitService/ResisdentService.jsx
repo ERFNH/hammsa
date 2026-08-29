@@ -12,12 +12,11 @@ function ResisdentService() {
   const [category, setCategory] = useState(1);
   const [description, setDescription] = useState("");
   const [registrationFee, setRegistrationFee] = useState("");
-  const [sessions, setSessions] = useState([{ startTime: "", endTime: "" }]);
+  const [eventTime, setEventTime] = useState([]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (!activeBuilding?.buildingId) {
-        alert("ساختمان فعال پیدا نشد.");
         return;
       }
       await createResidentEvent(
@@ -26,9 +25,14 @@ function ResisdentService() {
         title,
         description,
         Number(registrationFee),
-        sessions,
+        eventTime,
       );
       alert("رویداد با موفقیت ثبت شد.");
+      setTitle("")
+      setCategory("")
+      setDescription("")
+      setRegistrationFee("")
+      setEventTime([])
     } catch (err) {
       console.error("خطا در ثبت رویداد:", err);
       alert("خطا در ثبت رویداد.");
@@ -71,10 +75,8 @@ function ResisdentService() {
           label="زمان‌های برگزاری"
           type="textarea"
           className="input-textphone"
-          value={sessions[0].startTime}
-          onChange={(val) =>
-            setSessions([{ startTime: val, endTime: sessions[0].endTime }])
-          }
+          value={eventTime}
+          onChange={setEventTime}
         />
         <Input
           label="هزینه ثبت نام"
