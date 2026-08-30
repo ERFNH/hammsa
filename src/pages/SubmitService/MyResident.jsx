@@ -46,7 +46,7 @@ function MyResident() {
   return (
     <main className="mainglobalinpage">
       <Backbutton />
-      <h1 className="globalpageheader">رویدادهایی که ثبت نام کرده‌اید</h1>
+      <h1 className="globalpageheader">رویدادهایی من</h1>
       {loading ? (
         <p className="loadingtext">در حال دریافت اطلاعات</p>
       ) : items.length === 0 ? (
@@ -58,10 +58,10 @@ function MyResident() {
               <Glassybackground>
                 <section className="listcart">
                   <p className="cartrow">
-                    <strong>دسته بندی:</strong> {getCategoryName(item.category)}
+                    <strong>:دسته بندی</strong> {getCategoryName(item.category)}
                   </p>
                   <p className="cartrow">
-                    <strong>عنوان:</strong> {item.title}
+                    <strong>:عنوان</strong> {item.title}
                   </p>
                   <Button
                     className="glassybutton"

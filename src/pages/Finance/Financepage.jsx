@@ -2,15 +2,16 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../component/Button/Button";
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
-import { getcurretncharge, getMyunits, postPayCharge } from "../../api/auth";
+import { getcurretncharge, getMyunits, postPayment } from "../../api/auth";
 import { useBuilding } from "../../context/Buildingcontext";
-import styles from "./Financepage.module.css";
+import Input from "../../component/Input/Input";
 import "../../global.css";
 function Finance() {
   const { activeBuilding } = useBuilding();
   const [charge, setCharge] = useState({ amount: 0, isPaid: false, id: null });
   const [loading, setLoading] = useState(true);
   const [isPaying, setIsPaying] = useState(false);
+  const [trackingCode, setTrackingCode] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
@@ -39,22 +40,20 @@ function Finance() {
   }, [activeBuilding]);
   const handlePay = async () => {
     if (!charge.id) {
-      alert("شناسه شارژ پیدا نشد.");
+      alert("شناسه شارژ پیدا نشد");
+      return;
+    }
+    if (!trackingCode.trim()) {
+      alert("لطفاً کد پیگیری را وارد کنید.");
       return;
     }
     try {
       setIsPaying(true);
-      const response = await postPayCharge(charge.id);
-      let rawUrl = response.data?.paymentUrl;
-      if (rawUrl && typeof rawUrl === "string") {
-        const fixedUrl = rawUrl.replace("?authority=", "&authority=");
-        window.location.href = fixedUrl;
-      } else {
-        alert("آدرس درگاه پرداخت دریافت نشد.");
-      }
+      const response = await postPayment(charge.id, trackingCode);
+      console.log("پاسخ سرور:", response.data);
+      alert("کدپیگیری با موفقیت ارسال شد");
     } catch (err) {
-      console.error("خطا در درخواست پرداخت:", err);
-      alert("مشکلی در ارتباط با درگاه پرداخت به وجود آمد.");
+      console.error("خطا در ارسال:", err);
     } finally {
       setIsPaying(false);
     }
@@ -66,25 +65,27 @@ function Finance() {
       ) : (
         <>
           <Glassybackground>
-            <header className={styles.headerfinance}>
-              <div className={styles.headerfirst}>
-                <p>شارژ این ماه</p>
-                <h1 className="globallightbackground">
-                  {charge.amount.toLocaleString()} تومان
-                </h1>
-              </div>
+            <header className="globalpageform">
+              <>
+                <Input
+                  className="input-group input-textphone"
+                  type="number"
+                  label="کد پیگیری"
+                  value={trackingCode}
+                  onChange={setTrackingCode}
+                ></Input>
+              </>
               {!charge.isPaid && (
                 <Button
                   onClick={handlePay}
                   disabled={isPaying}
-                  className={`simplebutton ${styles.buttonstyle}`}
+                  className="glassybutton"
                 >
-                  {isPaying ? "در حال انتقال..." : "پرداخت"}
+                  {isPaying ? "در حال ارسال..." : "ارسال"}
                 </Button>
               )}
             </header>
           </Glassybackground>
-
           <div className="buttonglobalstyle">
             <Button
               className="btntobottom"
@@ -107,5 +108,4 @@ function Finance() {
     </main>
   );
 }
-
 export default Finance;

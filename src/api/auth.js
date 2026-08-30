@@ -207,8 +207,11 @@ export const getRates = (buildingId) => {
   return api.get(`/Charge/${buildingId}/rates`);
 };
 
-export const postPayCharge = (chargeId) => {
-  return api.post(`/Charge/${chargeId}/pay`);
+export const postPayment = (chargeId, trackingCode) => {
+  return api.post(`/Charge/submit-manual-payment`, {
+    chargeId,
+    trackingCode,
+  });
 };
 
 export const putSharedCost = (buildingId, data) => {
@@ -467,4 +470,8 @@ export const deleteMyResident = (eventId) => {
   return api.delete(
     `/BuildingServices/delete-resident-event?eventId=${eventId}`,
   );
+};
+
+export const getJoinResident = () => {
+  return api.get(`/BuildingServices/get-joined-events`);
 };

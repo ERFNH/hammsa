@@ -54,37 +54,41 @@ function ResidentServiceDetail() {
         <p className="loadingtext">رویداد مورد نظر یافت نشد</p>
       ) : (
         <>
-          <Glassybackground>
-            <div className="cart globalcenterpage">
+          <div className="cart globalcenterpage">
+            <Glassybackground>
               <p className="cartrow">
-                <strong> ایجادکننده:</strong> {item.organizerFullName}
+                <strong> :ایجادکننده</strong> {item.organizerFullName}
               </p>
               <p className="cartrow">
-                <strong>دسته بندی:</strong> {getCategoryName(item.category)}
+                <strong>:دسته بندی</strong> {getCategoryName(item.category)}
               </p>
               <p className="cartrow">
-                <strong>عنوان:</strong> {item.title}
+                <strong>:عنوان</strong> {item.title}
               </p>
               <p className="cartrow">
-                <strong>توضیحات:</strong> {item.description}
+                <strong>:توضیحات</strong> {item.description}
               </p>
               <p className="cartrow">
-                <strong>زمان برگزاری:</strong> {item.eventTime}
+                <strong className="longText">:زمان برگزاری</strong>
+                <div className="longText">{item.eventTime}</div>
               </p>
               <p className="cartrow">
-                <strong>شماره تماس:</strong> {item.contactPhone}
+                
+                <strong>:شماره تماس</strong> {item.contactPhone}
               </p>
               <p className="cartrow">
-                <strong>مکان:</strong> {item.location}
+                <strong>:مکان</strong> {item.location}
               </p>
               <p className="cartrow">
-                <strong>هزینه ثبت نام:</strong>تومان {item.registrationFee}
+                <strong>:هزینه ثبت نام</strong>تومان {item.registrationFee}
               </p>
-              <Button className="glassybutton" onClick={handleSubmit}>
-                ثبت نام
-              </Button>
-            </div>
-          </Glassybackground>
+              {!item.isMine && (
+                <Button className="glassybutton" onClick={handleSubmit}>
+                  ثبت نام
+                </Button>
+              )}
+            </Glassybackground>
+          </div>
         </>
       )}
     </main>

@@ -29,13 +29,19 @@ function Tanentprofile() {
         <Button className="btntobottom" onClick={() => navigate("/NewCowner")}>
           افزودن عضو جدید
         </Button>
-        <Button className="btntobottom" onClick={() => navigate("/ShowCoOwner")}>
+        <Button
+          className="btntobottom"
+          onClick={() => navigate("/ShowCoOwner")}
+        >
           مشاهده اعضا
         </Button>
         <Button className="btntobottom" onClick={() => navigate("/Poll")}>
           تغییر ساختمان
         </Button>
-        <Button className="btntobottom" onClick={() => navigate("/Poll")}>
+        <Button
+          className="btntobottom"
+          onClick={() => navigate("/Publicprofile")}
+        >
           ویرایش پروفایل
         </Button>
       </div>

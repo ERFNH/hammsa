@@ -53,10 +53,10 @@ function ShowResidentService() {
             <li key={item.id} className="cart">
               <Glassybackground>
                 <p className="cartrow">
-                  <strong>عنوان:</strong> {item.title}
+                  <strong>:عنوان</strong> {item.title}
                 </p>
                 <p className="cartrow">
-                  <strong>نام ایجادکننده:</strong> {item.organizerFullName}
+                  <strong>:نام ایجادکننده</strong> {item.organizerFullName}
                 </p>
                 <Button
                   className="simplebutton"

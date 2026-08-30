@@ -51,7 +51,7 @@ function MyGroupBuy() {
               <Glassybackground>
                 <section className="listcart">
                   <p className="cartrow">
-                    <strong>عنوان:</strong> {item.title}
+                    <strong>:عنوان</strong> {item.title}
                   </p>
                   <Button
                     className="glassybutton"

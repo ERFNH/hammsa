@@ -31,7 +31,7 @@ function ShowFixCost() {
       });
   }, [activeBuilding]);
 
-  if (loading) return <p className="loadingtext">در حال دریافت اطلاعات...</p>;
+  if (loading) return <p className="loadingtext">در حال دریافت اطلاعات</p>;
 
   return (
     <FixCostt

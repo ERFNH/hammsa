@@ -56,6 +56,7 @@ import JoinGroupBuy from "./pages/SubmitService/JoinGroupBuy";
 import ShowResidentService from "./pages/ShowService/ShowResidentService";
 import ResidentServiceDetail from "./pages/ShowService/ResidentServiceDetail";
 import MyResident from "./pages/SubmitService/MyResident";
+import JoinResident from "./pages/SubmitService/JoinResident";
 function App() {
   return (
     <BrowserRouter>
@@ -70,7 +71,6 @@ function App() {
           </Route>
 
           <Route element={<Otherlayout />}>
-            {/*
             <Route
               path="/Managerprofile"
               element={
@@ -79,8 +79,7 @@ function App() {
                 </Rolecomponent>
               }
             />
-            */}
-            <Route path="/Managerprofile" element={<Managerprofile />} />
+            {/*<Route path="/Managerprofile" element={<Managerprofile />} />*/}
             <Route path="/Buildinginfo" element={<Buildinginfo />} />
             <Route path="/Changing" element={<Changing />} />
             <Route path="/Newowner" element={<Newowner />} />
@@ -100,9 +99,8 @@ function App() {
             <Route path="/Newcost" element={<Newcost />} />
             <Route path="/ShowNewCost" element={<ShowNewCost />} />
             <Route path="/Setcharge" element={<Setcharge />} />
-            <Route path="/ownerprofile" element={<Ownerprofile />} />
+            {/* <Route path="/ownerprofile" element={<Ownerprofile />} />*/}
             <Route path="/NewCowner" element={<NewCowner />} />
-            {/* 
             <Route
               path="/Ownerprofile"
               element={
@@ -111,7 +109,6 @@ function App() {
                 </Rolecomponent>
               }
             />
-            */}
             <Route path="/Showtanant" element={<Showtanant />} />
             <Route path="/Newtenant" element={<Newtenant />} />
             <Route path="/ShowCoMember" element={<ShowCoMember />} />
@@ -159,6 +156,7 @@ function App() {
             <Route path="/GroupService" element={<GroupService />} />
             <Route path="/ResisdentService" element={<ResisdentService />} />
             <Route path="/MyResident" element={<MyResident />} />
+            <Route path="/JoinResident" element={<JoinResident />} />
           </Route>
         </Routes>
       </Buildingcontrol>

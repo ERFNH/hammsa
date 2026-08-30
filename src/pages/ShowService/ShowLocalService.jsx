@@ -59,7 +59,9 @@ function ShowLocalService() {
       ) : (
         <>
           {filteredServices.length === 0 ? (
-            <div style={{ display: "none" }}></div>
+            <p className="loadingtext">
+              خدماتی برای نمایش وجود ندارد
+            </p>
           ) : (
             <ul className="listcart">
               {filteredServices.map((item) => (

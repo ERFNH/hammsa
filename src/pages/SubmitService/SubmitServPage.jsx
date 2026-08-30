@@ -54,7 +54,12 @@ function SubmitServPage() {
         <Button className="btntobottom" onClick={() => navigate("/MyResident")}>
           رویدادهای من{" "}
         </Button>
-        <Button className="btntobottom">رویدادهایی که پیوسته‌اید</Button>
+        <Button
+          className="btntobottom"
+          onClick={() => navigate("/JoinResident")}
+        >
+          رویدادهایی که پیوسته‌اید
+        </Button>
       </div>
     </main>
   );

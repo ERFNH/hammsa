@@ -156,16 +156,41 @@ li {
   width: 20rem;
 }
 .cartrow {
+  display: grid;
+  grid-template-columns:1fr 9rem ;
+  text-align: right;
+  gap: .3rem;
+}
+.cartrowflex{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  direction: rtl;
 }
+
+.cartrow strong {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.cartrow p,
+.cartrow span {
+  grid-column: 1;
+   grid-row: 1;
+  word-break: break-word;
+}
+
+
 .listcart {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
 .borderbottom {
   border-bottom: 1px solid black;
+}
+
+.longText {
+  flex: 1;
+  text-align: right;
 }

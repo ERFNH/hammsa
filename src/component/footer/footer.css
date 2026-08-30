@@ -19,10 +19,12 @@ footer a {
   justify-content: center;
 }
 
-.icon {
+.footer-link {
   color: #000000;
 }
 
-.footer-link.active .icon {
+.footer-link.active {
   color: #d5b072;
 }
+
+

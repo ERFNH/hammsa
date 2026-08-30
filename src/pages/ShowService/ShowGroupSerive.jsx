@@ -58,26 +58,28 @@ function ShowGroupSerive() {
             <li key={item.id} className="cart">
               <Glassybackground>
                 <section className="listcart">
-                  <div className="cartrow">
-                    <strong>{item.title}</strong>
+                  <div className="cartrowflex">
                     <p>{new Date(item.deadline).toLocaleDateString("fa-IR")}</p>
+                    <strong>{item.title}</strong>
                   </div>
                   <p className="cartrow">
-                    <strong>نام ایجادکننده:</strong>
+                    <strong>:نام ایجادکننده</strong>
                     {item.organizerFullName || "—"}
                   </p>
-                  <p className="cartrow">
-                    <strong>واحد:</strong>
+                  <p className="cartrowflex">
+                    {item.block || "—"}
+                    <strong>بلوک</strong>
+                    {item.floor || "—"}
+                    <strong>طبقه</strong>
                     {item.unitNumber || "—"}
-                    <strong>بلوک:</strong> {item.block || "—"}
-                    <strong>طبقه:</strong> {item.floor || "—"}
+                    <strong>واحد</strong>
                   </p>
                   <p className="cartrow">
-                    <strong>تعداد واحد های پیوسته به این کمپین:</strong>
+                    <strong>:تعداد خریداران</strong>
                     {item.joinedUnitsCount}
                   </p>
                   <p className="cartrow">
-                    <strong>قیمت:</strong> تومان{item.price}
+                    <strong>:قیمت</strong> تومان{item.price}
                   </p>
                   {!item.hasJoined && !item.isMine && (
                     <Button

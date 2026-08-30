@@ -24,7 +24,6 @@ function ShowListingService() {
   useEffect(() => {
     const fetchData = async () => {
       if (!activeBuilding?.buildingId) {
-        setLoading(false);
         return;
       }
       try {
@@ -42,9 +41,6 @@ function ShowListingService() {
   const filteredListings = listings.filter((item) => {
     return item.title?.toLowerCase().includes(searchTerm.toLowerCase()) || "";
   });
-  if (loading) {
-    return <p className="loadingtext">در حال دریافت اطلاعات</p>;
-  }
   return (
     <main className="mainglobalinpage">
       <Backbutton />
@@ -52,7 +48,9 @@ function ShowListingService() {
         <h1 className="globalpageheader">آگهی همسایگان</h1>
         <Search value={searchTerm} onChange={setSearchTerm} />
       </div>
-      {filteredListings.length === 0 ? (
+      {loading ? (
+        <p className="loadingtext">در حال دریافت اطلاعات</p>
+      ) : filteredListings.length === 0 ? (
         <p className="loadingtext">آگهی وجود ندارد</p>
       ) : (
         <div className="listcart">
