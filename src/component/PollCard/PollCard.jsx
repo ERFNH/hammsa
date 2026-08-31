@@ -64,7 +64,6 @@ function PollCard({ pollId, title, description, options = [] }) {
     const option = options.find((opt) => opt.pollId === optionId);
     return Math.round(((option?.voteCount || 0) / totalVotes) * 100);
   };
-
   return (
     <main className={styles.pollCard}>
       <Glassybackground>

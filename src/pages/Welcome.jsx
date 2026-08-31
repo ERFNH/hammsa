@@ -8,7 +8,7 @@ import "./Welcome.css";
 import "../global.css";
 function Welcome() {
   const { activeBuilding } = useBuilding();
-  console.log("activeBuilding:", activeBuilding);
+  //console.log("activeBuilding:", activeBuilding);
   const [userInfo, setUserInfo] = useState(null);
   const [loading, setLoading] = useState(true);
   const phone = localStorage.getItem("phone");
@@ -21,18 +21,18 @@ function Welcome() {
         const userRes = await getUserprofile();
         setUserInfo(userRes.data);
         if (activeBuilding?.buildingId) {
-          console.log(":", activeBuilding.buildingId);
+          //console.log(":", activeBuilding.buildingId);
           const unitsRes = await getMyunits(activeBuilding.buildingId);
           const myUnits = unitsRes.data?.userUnitDetails || [];
-          console.log("کل پاسخ واحدها:", unitsRes.data);
-          console.log("myUnits فعلی:", myUnits);
+          //console.log("کل پاسخ واحدها:", unitsRes.data);
+          // console.log("myUnits فعلی:", myUnits);
           if (myUnits.length > 0 && myUnits[0]?.unitId) {
             const unitId = myUnits[0]?.unitId;
-            console.log("unitId ارسال‌شده:", unitId);
+            // console.log("unitId ارسال‌شده:", unitId);
             if (unitId) {
               try {
                 const chargeRes = await getcurretncharge(unitId);
-                console.log("charge:", chargeRes.data);
+                //console.log("charge:", chargeRes.data);
                 setCharge({
                   amount: chargeRes.data?.amount ?? 0,
                   isPaid: chargeRes.data?.isPaid ?? false,
@@ -54,16 +54,16 @@ function Welcome() {
         }
       } catch (err) {
         console.error("خطا در دریافت اطلاعات:", err);
-        console.error("وضعیت HTTP:", err.response?.status);
-        console.error("آدرس درخواست:", err.config?.url);
-        console.error("پاسخ سرور:", err.response?.data);
+        // console.error("وضعیت HTTP:", err.response?.status);
+        // console.error("آدرس درخواست:", err.config?.url);
+        // console.error("پاسخ سرور:", err.response?.data);
       }
     };
     fetchData();
     const timer = setTimeout(() => {
       setLoading(false);
     }, 8000);
-     return () => clearTimeout(timer);
+    return () => clearTimeout(timer);
   }, [activeBuilding]);
   const isProfileComplete = userInfo?.firstName && userInfo?.lastName;
   if (loading) {
@@ -155,7 +155,12 @@ function Welcome() {
               >
                 اعلانات
               </Button>
-              <Button className="welcomebutton">چالش های گروهی</Button>
+              <Button
+                className="welcomebutton"
+                onClick={() => navigate("/ChalengePage")}
+              >
+                چالش های گروهی
+              </Button>
             </section>
           </div>
         </>

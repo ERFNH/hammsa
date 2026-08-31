@@ -103,3 +103,13 @@ button {
   border-radius: 0.8rem;
   border: none;
 }
+
+.chalenge{
+  background: #E59E27;
+  border-radius: 0.8rem;
+  border: none;
+  width: 21rem;
+  height: 2.5rem;
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.651);
+
+}

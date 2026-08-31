@@ -58,6 +58,8 @@ import ResidentServiceDetail from "./pages/ShowService/ResidentServiceDetail";
 import MyResident from "./pages/SubmitService/MyResident";
 import JoinResident from "./pages/SubmitService/JoinResident";
 import PaymentStatus from "./pages/manager/PaymentStatus";
+import ChalengePage from "./pages/Chalenge/ChalengePage";
+import ChalengRegister from "./pages/Chalenge/ChalengRegister"
 function App() {
   return (
     <BrowserRouter>
@@ -159,6 +161,8 @@ function App() {
             <Route path="/ResisdentService" element={<ResisdentService />} />
             <Route path="/MyResident" element={<MyResident />} />
             <Route path="/JoinResident" element={<JoinResident />} />
+            <Route path="/ChalengePage" element={<ChalengePage />} />
+            <Route path="/ChalengRegister" element={<ChalengRegister />} />
           </Route>
         </Routes>
       </Buildingcontrol>

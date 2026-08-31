@@ -1,5 +1,4 @@
 import "./Option.css";
-
 function Option({ first, second, value, onChange }) {
   return (
     <div className="option-container">
@@ -12,7 +11,6 @@ function Option({ first, second, value, onChange }) {
           <div className="radio-inner"></div>
         </div>
       </div>
-
       <div
         className={`option-item ${value == second.value ? "active" : ""}`}
         onClick={() => onChange(second.value)}

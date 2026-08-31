@@ -17,11 +17,9 @@ function PaymentStatus() {
     const fetchStatus = async () => {
       try {
         const response = await getPayment(unitId);
-        console.log("response.data:", response.data);
         setTrackingCode(response.data?.trackingCode || "—");
         setTransactionId(response.data?.transactionId);
         setStatus(response.data?.status);
-
         setLoading(false);
       } catch (err) {
         console.error("خطا در دریافت :", err);
@@ -44,40 +42,42 @@ function PaymentStatus() {
     <main className="mainglobalinpage">
       <Backbutton />
       <h1 className="globalpageheader">وضعیت پرداخت</h1>
-      <Glassybackground>
-        <div className="globalpageform">
+      <div className="cart">
+        <Glassybackground>
           {loading ? (
             <p className="loadingtext"> در حال دریافت اطلاعات</p>
           ) : (
             <>
               {status === 2 ? (
                 <p className={`loadingtext ${styles.pay}`}>
-                  پرداخت قبلاً تایید شده است
+                  پرداخت تایید شده است
                 </p>
               ) : (
-                <div className="cartrowflex">
+                <>
                   <p className="cartrowflex">
                     {trackingCode}
                     <strong>:کد پیگیری</strong>
                   </p>
-                  <Button
-                    className={`${styles.btntobottom} ${styles.btnreject}`}
-                    onClick={() => handleVerify(false)}
-                  >
-                    لغو
-                  </Button>
-                  <Button
-                    className={`${styles.btntobottom} ${styles.btnaccept}`}
-                    onClick={() => handleVerify(true)}
-                  >
-                    تایید
-                  </Button>
-                </div>
+                  <div className="cartrowflex">
+                    <Button
+                      className={`${styles.btntobottom} ${styles.btnreject}`}
+                      onClick={() => handleVerify(false)}
+                    >
+                      لغو
+                    </Button>
+                    <Button
+                      className={`${styles.btntobottom} ${styles.btnaccept}`}
+                      onClick={() => handleVerify(true)}
+                    >
+                      تایید
+                    </Button>
+                  </div>
+                </>
               )}
             </>
           )}
-        </div>
-      </Glassybackground>
+        </Glassybackground>
+      </div>
     </main>
   );
 }

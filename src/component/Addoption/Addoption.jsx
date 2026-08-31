@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import styles from "./Addoption.module.css";
 import Plus from "../../assets/icons/plus.svg?react";
 import Glassybackground from "../Glassybackground/Glassybackground";
-
 function Addoption({ options = [], onChange, placeholder = "گزینه جدید..." }) {
   const [newOption, setNewOption] = useState("");
   const [isAdding, setIsAdding] = useState(false);
-
   const handleAddOption = () => {
     if (newOption.trim() === "") return;
     const updatedOptions = [...options, newOption.trim()];
@@ -14,14 +12,12 @@ function Addoption({ options = [], onChange, placeholder = "گزینه جدید.
     setNewOption("");
     setIsAdding(false);
   };
-
   const handleRemoveOption = (indexToRemove) => {
     const updatedOptions = options.filter(
       (_, index) => index !== indexToRemove,
     );
     onChange(updatedOptions);
   };
-
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleAddOption();
@@ -31,7 +27,6 @@ function Addoption({ options = [], onChange, placeholder = "گزینه جدید.
       setIsAdding(false);
     }
   };
-
   return (
     <Glassybackground>
       <div className={styles.addoption}>
@@ -49,7 +44,7 @@ function Addoption({ options = [], onChange, placeholder = "گزینه جدید.
             </div>
           ))}
         </div>
-
+        
         {isAdding ? (
           <div className={styles.addWrapper}>
             <input

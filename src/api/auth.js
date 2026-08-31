@@ -486,3 +486,33 @@ export const deleteMyResident = (eventId) => {
 export const getJoinResident = () => {
   return api.get(`/BuildingServices/get-joined-events`);
 };
+
+//chalenge
+
+export const postChalengeRegister = (
+  buildingId,
+  age,
+  gender,
+  sportsBackground,
+) => {
+  return api.post(`/Challenge/register-for-challenge`, {
+    buildingId,
+    age,
+    gender,
+    sportsBackground,
+  });
+};
+
+export const getChalengeStatus = (buildingId) => {
+  return api.get(`/Challenge/${buildingId}/get-challenge-status`);
+};
+
+export const getChalengeDetail = (buildingId)=>{
+  return api.get(`/Challenge/${buildingId}/get-challenge-details`)
+}
+
+export const completeChallenge = (buildingId) => {
+  return api.post(`/Challenge/complete-challenge`, null, {
+    params: { buildingId }
+  });
+};
