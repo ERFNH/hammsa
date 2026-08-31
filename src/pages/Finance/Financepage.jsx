@@ -66,23 +66,25 @@ function Finance() {
         <>
           <Glassybackground>
             <header className="globalpageform">
-              <>
-                <Input
-                  className="input-group input-textphone"
-                  type="number"
-                  label="کد پیگیری"
-                  value={trackingCode}
-                  onChange={setTrackingCode}
-                ></Input>
-              </>
-              {!charge.isPaid && (
-                <Button
-                  onClick={handlePay}
-                  disabled={isPaying}
-                  className="glassybutton"
-                >
-                  {isPaying ? "در حال ارسال..." : "ارسال"}
-                </Button>
+              {!charge.isPaid ? (
+                <>
+                  <Input
+                    className="input-group input-textphone"
+                    type="number"
+                    label="کد پیگیری"
+                    value={trackingCode}
+                    onChange={setTrackingCode}
+                  />
+                  <Button
+                    onClick={handlePay}
+                    disabled={isPaying}
+                    className="glassybutton"
+                  >
+                    {isPaying ? "در حال ارسال" : "ارسال"}
+                  </Button>
+                </>
+              ) : (
+                <p className="loadingtext">پرداخت تایید شد </p>
               )}
             </header>
           </Glassybackground>

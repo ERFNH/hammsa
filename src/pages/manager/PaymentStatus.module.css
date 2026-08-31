@@ -1,0 +1,17 @@
+.btntobottom {
+  border: none;
+  border-radius: 1rem;
+  width: 9rem;
+  height: 2rem;
+}
+
+.btnreject {
+  background-color: #f8b5b590;
+}
+
+.btnaccept {
+  background-color: #b7f2b6a7;
+}
+.pay {
+  color: green;
+}

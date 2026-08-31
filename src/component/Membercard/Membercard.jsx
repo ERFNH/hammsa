@@ -50,11 +50,12 @@ function MemberCard({ member, unit, onStatusClick, allowEdit = true, onEdit }) {
         <span className={styles.name}>{member.fullName}</span>
       </div>
       <div className={styles.buttonrow}>
-        {/*{isActive && (
-          <Button className="simplebutton" onClick={onEdit}>
-            ویرایش
-          </Button>
-        )}*/}
+        <Button
+          className="simplebutton"
+          onClick={() => navigate(`/PaymentStatus/${unit.unitId}`)}
+        >
+          وضعیت پرداخت
+        </Button>
         {isActive && member.role === 1 && (
           <Button
             className="simplebutton"

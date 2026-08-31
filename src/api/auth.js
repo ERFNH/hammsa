@@ -214,6 +214,17 @@ export const postPayment = (chargeId, trackingCode) => {
   });
 };
 
+export const postVerifyPayment = (transactionId, isApproved) => {
+  return api.post(`/Charge/verify-manual-payment`, {
+    transactionId,
+    isApproved,
+  });
+};
+
+export const getPayment = (unitId) => {
+  return api.get(`/Charge/${unitId}/unit-payment-status`);
+};
+
 export const putSharedCost = (buildingId, data) => {
   return api.put(`/Charge/${buildingId}/shared-costs`, data);
 };

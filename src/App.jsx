@@ -57,6 +57,7 @@ import ShowResidentService from "./pages/ShowService/ShowResidentService";
 import ResidentServiceDetail from "./pages/ShowService/ResidentServiceDetail";
 import MyResident from "./pages/SubmitService/MyResident";
 import JoinResident from "./pages/SubmitService/JoinResident";
+import PaymentStatus from "./pages/manager/PaymentStatus";
 function App() {
   return (
     <BrowserRouter>
@@ -84,6 +85,7 @@ function App() {
             <Route path="/Changing" element={<Changing />} />
             <Route path="/Newowner" element={<Newowner />} />
             <Route path="/Showmembers" element={<Showmembers />} />
+            <Route path="/PaymentStatus/:unitId" element={<PaymentStatus />} />
             <Route path="/Newannouncement" element={<Newannouncement />} />
             <Route path="/Showancmt" element={<Showancmt />} />
             <Route path="/Newrepair" element={<Newrepair />} />

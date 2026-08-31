@@ -4,7 +4,6 @@ import { getUnits, removeowner } from "../../api/auth";
 import { useBuilding } from "../../context/Buildingcontext";
 import { useEffect, useState } from "react";
 import MemberCard from "../../component/Membercard/Membercard";
-//import EditMember from "../../component/EditMember/EditMember";
 import "../../global.css";
 import Backbutton from "../../component/Backbutton/Backbutton";
 function Showmembers() {
@@ -12,7 +11,7 @@ function Showmembers() {
   const { activeBuilding } = useBuilding();
   const [units, setUnits] = useState([]);
   const [loading, setLoading] = useState(true);
-  //const [editingMember, setEditingMember] = useState(null);
+  const [paymentStatus, setPaymentStatus] = useState(null);
   const fetchMembers = async () => {
     if (!activeBuilding?.buildingId) return;
     try {
@@ -64,16 +63,6 @@ function Showmembers() {
         unit,
       })),
   );
-  {
-    /* const handleEdit = (member, unit) => {
-    console.log("EDIT UNIT:", unit);
-    console.log("EDIT MEMBER:", member);
-    setEditingMember({
-      member,
-      unit,
-    });
-  };*/
-  }
   return (
     <main className="mainglobalinpage">
       <Backbutton />
@@ -104,8 +93,6 @@ function Showmembers() {
                 member={member}
                 unit={unit}
                 onStatusClick={handleStatusClick}
-                //allowEdit={true}
-                //onEdit={() => handleEdit(member, unit)}
               />
             ))
           )}
@@ -124,26 +111,13 @@ function Showmembers() {
                 member={member}
                 unit={unit}
                 onStatusClick={null}
-                //allowEdit={false}
               />
             ))
           )}
         </div>
       )}
-      {/*{editingMember && (
-        <div className="edit-member-overlay">
-          <div className="edit-member-modal">
-            <EditMember
-              member={editingMember.member}
-              unit={editingMember.unit}
-              onClose={() => setEditingMember(null)}
-              onSave={editOwner}
-              showEndDate={false}
-            />
-          </div>
-        </div>
-      )}*/}
     </main>
   );
 }
+
 export default Showmembers;
