@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Button from "../../component/Button/Button";
 import Search from "../../component/Search/Search";
-import styles from "./ShowTransaction.module.css";
 import "../../global.css";
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
 import Backbutton from "../../component/Backbutton/Backbutton";
@@ -14,6 +13,8 @@ function ShowTransaction() {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  {
+    /*
   const mockTransactions = [
     {
       id: 1,
@@ -52,14 +53,16 @@ function ShowTransaction() {
       unitNumber: 3,
     },
   ];
+  */
+  }
   useEffect(() => {
     const fetchData = async () => {
       if (!activeBuilding?.buildingId) return;
       try {
         setLoading(true);
-        //const response = await getPaid(activeBuilding.buildingId);
-        //setTransactions(response.data || []);
-        setTransactions(mockTransactions);
+        const response = await getPaid(activeBuilding.buildingId);
+        setTransactions(response.data || []);
+        //setTransactions(mockTransactions);
       } catch (err) {
         console.error("خطا در دریافت تراکنش‌ها:", err);
       } finally {
@@ -121,7 +124,7 @@ function ShowTransaction() {
         <h1 className="globalpageheader">تراکنش ها</h1>
         <Search value={searchTerm} onChange={setSearchTerm} />
       </div>
-      <div className={styles.transactionList}>
+      <div className="globalpageform" style={{ direction: "rtl" }}>
         {loading ? (
           <p className="loadingtext">در حال دریافت اطلاعات</p>
         ) : filteredTransactions.length === 0 ? (
@@ -129,15 +132,15 @@ function ShowTransaction() {
         ) : (
           filteredTransactions.map((item, index) => (
             <Glassybackground key={item.id || index}>
-              <div className={styles.transactionCard}>
-                <div className={styles.cardLeft}>
+              <div className="cart">
+                <div style={{ direction: "ltr" }}>
                   <span>{new Date(item.date).toLocaleDateString("fa-IR")}</span>
                 </div>
                 <div>
                   <span>با کد پیگیری </span>
                   <span>{item.trackingCode}</span>
                 </div>
-                <div className={styles.buildingInfo}>
+                <div className="cartrowflex">
                   <div>
                     <span>بلوک:</span>
                     <span>{item.block}</span>
@@ -156,10 +159,7 @@ function ShowTransaction() {
           ))
         )}
       </div>
-      <Button
-        className="simplebutton-wh"
-        onClick={downloadTransactionsPDF}
-      >
+      <Button className="simplebutton-wh" onClick={downloadTransactionsPDF}>
         دریافت رسید تراکنش
       </Button>
     </main>

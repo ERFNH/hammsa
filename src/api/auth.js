@@ -40,6 +40,10 @@ export const getMyBuilding = () => {
   return api.get("/Building/my-buildings");
 };
 
+export const geImage = (buildingId) => {
+  return api.get(`/Building/${buildingId}/building-image`);
+};
+
 export const getBuildingDetails = (id) => {
   return api.get(`/Building/${id}`);
 };
@@ -281,6 +285,10 @@ export const getDashboardFinancials = (buildingId) => {
   return api.get(`/Charge/${buildingId}/dashboard-financials`);
 };
 
+export const getPredict = (buildingId) => {
+  return api.get(`/Charge/${buildingId}/predict-expenses`);
+};
+
 //poll
 export const Newpoll = (
   buildingId,
@@ -507,12 +515,12 @@ export const getChalengeStatus = (buildingId) => {
   return api.get(`/Challenge/${buildingId}/get-challenge-status`);
 };
 
-export const getChalengeDetail = (buildingId)=>{
-  return api.get(`/Challenge/${buildingId}/get-challenge-details`)
-}
+export const getChalengeDetail = (buildingId) => {
+  return api.get(`/Challenge/${buildingId}/get-challenge-details`);
+};
 
 export const completeChallenge = (buildingId) => {
   return api.post(`/Challenge/complete-challenge`, null, {
-    params: { buildingId }
+    params: { buildingId },
   });
 };

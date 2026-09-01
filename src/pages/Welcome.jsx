@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Buildingimage from "../assets/images/buildingimage.png";
 import Button from "../component/Button/Button";
-import { getUserprofile, getcurretncharge, getMyunits } from "../api/auth";
+import {
+  getUserprofile,
+  getcurretncharge,
+  getMyunits,
+  geImage,
+} from "../api/auth";
 import { useBuilding } from "../context/Buildingcontext";
 import "./Welcome.css";
 import "../global.css";
@@ -13,6 +17,7 @@ function Welcome() {
   const [loading, setLoading] = useState(true);
   const phone = localStorage.getItem("phone");
   const [charge, setCharge] = useState({ amount: 0, isPaid: false });
+  const [buildingImage, setBuildingImage] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
@@ -20,6 +25,14 @@ function Welcome() {
         setLoading(true);
         const userRes = await getUserprofile();
         setUserInfo(userRes.data);
+        if (activeBuilding?.buildingId) {
+          try {
+            const imageRes = await geImage(activeBuilding.buildingId);
+            setBuildingImage(imageRes?.data?.imageUrl || "");
+          } catch (err) {
+            console.error("خطا در دریافت تصویر ساختمان:", err);
+          }
+        }
         if (activeBuilding?.buildingId) {
           //console.log(":", activeBuilding.buildingId);
           const unitsRes = await getMyunits(activeBuilding.buildingId);
@@ -43,7 +56,6 @@ function Welcome() {
                   err.response?.status,
                   err.response?.data,
                 );
-
                 setCharge({
                   amount: 0,
                   isPaid: false,
@@ -91,7 +103,7 @@ function Welcome() {
       {activeBuilding && (
         <>
           <header className="welcome-header">
-            <img src={Buildingimage} alt="ساختمان" className="buildingimage" />
+            <img src={buildingImage} alt="ساختمان" className="buildingimage" />
             <div className="welcome-box">
               <h1 className="welcomebox-title">
                 <span>

@@ -2,7 +2,11 @@ import Backbutton from "../../component/Backbutton/Backbutton";
 import "../../global.css";
 import Button from "../../component/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { getChalengeStatus, getChalengeDetail, completeChallenge } from "../../api/auth";
+import {
+  getChalengeStatus,
+  getChalengeDetail,
+  completeChallenge,
+} from "../../api/auth";
 import { useEffect, useState } from "react";
 import { useBuilding } from "../../context/Buildingcontext";
 function ChalengePage() {
@@ -12,29 +16,31 @@ function ChalengePage() {
   const [challengeData, setChallengeData] = useState(null);
   const [detailData, setDetailData] = useState(null);
   const [isCompleted, setIsCompleted] = useState(false);
+  const today = new Date().getDay();
+  const isRegistrationDay = today === 6 || today === 0 || today === 1;
   useEffect(() => {
     const fetchData = async () => {
       if (!activeBuilding?.buildingId) return;
       try {
         setLoading(true);
         const statusRes = await getChalengeStatus(activeBuilding.buildingId);
-        //console.log("status:", statusRes.data);
-        setChallengeData(statusRes.data?.data);
-        if (statusRes.data?.data?.isRegistered) {
+        const status = statusRes.data?.data;
+        setChallengeData(status);
+        if (status?.isRegistered || !isRegistrationDay) {
           const detailRes = await getChalengeDetail(activeBuilding.buildingId);
-
-          console.log("detail:", detailRes.data);
-          setDetailData(detailRes.data?.data);
-          setIsCompleted(detailRes.data?.data?.isCompleted || false);
+          const detail = detailRes.data?.data;
+          console.log("DETAIL:", detail);
+          setDetailData(detail);
+          setIsCompleted(detail?.hasCompleted || false);
         }
       } catch (err) {
-        console.log(err);
+        console.error(err);
       } finally {
         setLoading(false);
       }
     };
     fetchData();
-  }, [activeBuilding?.buildingId]);
+  }, [activeBuilding?.buildingId, isRegistrationDay]);
   const handleComplete = async () => {
     if (!activeBuilding?.buildingId) return;
     try {
@@ -61,8 +67,7 @@ function ChalengePage() {
       <Backbutton />
       <div className="mainglobalinpage">
         <h1 className="globalpageheader">چالش ورزشی این هفته</h1>
-
-        {!challengeData?.isRegistered ? (
+        {!challengeData?.isRegistered && isRegistrationDay ? (
           <>
             <p className="loadingtext">در چالش ورزشی این هفته شرکت میکنی؟</p>
             <section className="headerglobalstyle">
@@ -79,25 +84,42 @@ function ChalengePage() {
                 این هفته شرکت نمی‌کنم
               </Button>
               <p className="loadingtext">
-                چالش ها از روز شنبه تا دوشنبه هر هفته مهلت ثبت نام دارند.
-                دوشنبه جزئیات چالش، در همین قسمت برنامه مشخص میشه و تا جمعه وقت داری انجامش بدی و ثبتش کنی
+                چالش ها از روز شنبه تا دوشنبه هر هفته مهلت ثبت نام دارند. دوشنبه
+                جزئیات چالش، در همین قسمت برنامه مشخص میشه و تا جمعه وقت داری
+                انجامش بدی و ثبتش کنی
               </p>
             </section>
           </>
         ) : (
           <>
-            {detailData && (
-              <div>
-                <p>{detailData.description || "توضیحات چالش"}</p>
-                <p>مهلت: {detailData.deadline || challengeData.challengeDeadline}</p>
+            {detailData ? (
+              <div className="headerglobalstyle">
+                <h3 style={{ direction: "rtl" }}>{detailData.title || "چالش ورزشی"}</h3>
+                <p>{detailData.description || "توضیحات چالش به زودی"}</p>
+                <p>
+                  مهلت:
+                  {detailData.deadline
+                    ? new Date(detailData.deadline).toLocaleDateString("fa-IR")
+                    : "نامشخص"}
+                </p>
+                <p>تعداد شرکت‌کنندگان: {detailData.totalParticipants || 0}</p>
               </div>
-            )}
-            {!isCompleted ? (
-              <Button onClick={handleComplete}>
-                انجام دادم
-              </Button>
             ) : (
-              <p> چالش انجام شد</p>
+              <p>در حال بارگذاری جزئیات چالش</p>
+            )}
+            {detailData && (
+              <>
+                {!isCompleted ? (
+                  <Button
+                    onClick={handleComplete}
+                    className="simplebutton-wh position-fx "
+                  >
+                    انجام دادم
+                  </Button>
+                ) : (
+                  <p> چالش انجام شد</p>
+                )}
+              </>
             )}
           </>
         )}
@@ -105,5 +127,4 @@ function ChalengePage() {
     </main>
   );
 }
-
 export default ChalengePage;

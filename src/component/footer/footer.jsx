@@ -11,7 +11,12 @@ import { owners } from "../../api/auth";
 function footer() {
   const { userRole, activeBuilding } = useBuilding();
   const location = useLocation();
-  const financePages = ["/Financepage", "/ShowFixCost", "/FinanceReport"];
+  const financePages = [
+    "/Financepage",
+    "/ShowFixCost",
+    "/FinanceReport",
+    "/FinancePredict",
+  ];
   const isFinanceActive = financePages.includes(location.pathname);
   const submitServPage = [
     "/submitServPage",
@@ -67,6 +72,8 @@ function footer() {
     "/Showtanant",
     "/NewCowner",
     "/ShowCoOwner",
+    "/TenantBuilding",
+    "/OwnerBuilding",
   ];
   const isProfile = profilePages.includes(location.pathname);
   let profilepath = "/managerprofile";

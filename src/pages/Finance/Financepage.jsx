@@ -101,7 +101,10 @@ function Finance() {
             >
               گزارش مالی
             </Button>
-            <Button className="btntobottom" onClick={() => navigate("/Poll")}>
+            <Button
+              className="btntobottom"
+              onClick={() => navigate("/FinancePredict")}
+            >
               پیش بینی هزینه
             </Button>
           </div>

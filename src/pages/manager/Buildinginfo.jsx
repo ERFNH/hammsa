@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { useBuilding } from "../../context/Buildingcontext";
 import "../../global.css";
 function Buildinginfo() {
-  const { activeBuilding, setActiveBuilding } = useBuilding();
+  const { activeBuilding, setActiveBuilding, refreshBuilding } = useBuilding();
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [blockCount, setBlockCount] = useState("");
@@ -29,6 +29,7 @@ function Buildinginfo() {
   const [hasMeetingHall, setHasMeetingHall] = useState(false);
   const [hasRoofGarden, setHasRoofGarden] = useState(false);
   const [image, setImage] = useState(null);
+  refreshBuilding();
   React.useEffect(() => {
     if (activeBuilding?.id) {
       getBuildingDetails(activeBuilding.id)
@@ -57,7 +58,7 @@ function Buildinginfo() {
       (position) => {
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
-        console.log(position);
+        //console.log(position);
         alert("لوکیشن ثبت شد.");
       },
       () => {
@@ -106,6 +107,7 @@ function Buildinginfo() {
       }
       console.log(response.data);
       setActiveBuilding(response.data);
+      refreshBuilding();
       alert("اطلاعات با موفقیت ثبت شد");
       setTimeout(() => {
         navigate("/Managerprofile");

@@ -1,4 +1,3 @@
-import "./Showmembers.css";
 import Tabs from "../../component/Tabs/Tabs";
 import { getUnits, removeowner } from "../../api/auth";
 import { useBuilding } from "../../context/Buildingcontext";
@@ -81,7 +80,7 @@ function Showmembers() {
         onChange={setActiveTab}
       />
       {activeTab === "owner" && (
-        <div className="members-container">
+        <div className="cart">
           {loading ? (
             <p className="loadingtext">در حال دریافت اطلاعات</p>
           ) : owners.length === 0 ? (
@@ -99,7 +98,7 @@ function Showmembers() {
         </div>
       )}
       {activeTab === "tenant" && (
-        <div className="members-container">
+        <div className="cart">
           {loading ? (
             <p className="loadingtext">در حال دریافت اطلاعات</p>
           ) : tenants.length === 0 ? (

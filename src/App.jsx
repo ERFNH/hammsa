@@ -59,7 +59,10 @@ import MyResident from "./pages/SubmitService/MyResident";
 import JoinResident from "./pages/SubmitService/JoinResident";
 import PaymentStatus from "./pages/manager/PaymentStatus";
 import ChalengePage from "./pages/Chalenge/ChalengePage";
-import ChalengRegister from "./pages/Chalenge/ChalengRegister"
+import ChalengRegister from "./pages/Chalenge/ChalengRegister";
+import OwnerBuilding from "./pages/owner/OwnerBuilding";
+import TenantBuilding from "./pages/tenant/TenantBuilding";
+import FinancePredict from "./pages/Finance/FinancePredict";
 function App() {
   return (
     <BrowserRouter>
@@ -117,6 +120,7 @@ function App() {
             <Route path="/Newtenant" element={<Newtenant />} />
             <Route path="/ShowCoMember" element={<ShowCoMember />} />
             <Route path="/Financepage" element={<Financepage />} />
+            <Route path="/FinancePredict" element={<FinancePredict />} />
             <Route path="/FixCost" element={<FixCost />} />
             <Route path="/FinanceReport" element={<FinanceReport />} />
             <Route path="/ShowFixCost" element={<ShowFixCost />} />
@@ -163,6 +167,8 @@ function App() {
             <Route path="/JoinResident" element={<JoinResident />} />
             <Route path="/ChalengePage" element={<ChalengePage />} />
             <Route path="/ChalengRegister" element={<ChalengRegister />} />
+            <Route path="/OwnerBuilding" element={<OwnerBuilding />} />
+            <Route path="/TenantBuilding" element={<TenantBuilding />} />
           </Route>
         </Routes>
       </Buildingcontrol>

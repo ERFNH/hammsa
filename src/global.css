@@ -199,3 +199,8 @@ li {
   all: unset;
   cursor: pointer;
 }
+
+
+.loadingtextrtl {
+  direction: rtl;
+}

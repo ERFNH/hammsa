@@ -10,6 +10,7 @@ export function Buildingcontrol({ children }) {
   const [activeBuilding, setActiveBuilding] = useState(null);
   const [userRole, setUserRole] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [refresh, setRefresh] = useState(0);
   useEffect(() => {
     let isMounted = true;
     async function loadData() {
@@ -78,7 +79,7 @@ export function Buildingcontrol({ children }) {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [refresh]);
   return (
     <Buildingcontext.Provider
       value={{
@@ -87,9 +88,11 @@ export function Buildingcontrol({ children }) {
         userRole,
         setUserRole,
         loading,
+        refreshBuilding: () => setRefresh((prev) => prev + 1),
       }}
     >
       {children}
+      
     </Buildingcontext.Provider>
   );
 }

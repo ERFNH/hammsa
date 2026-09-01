@@ -10,8 +10,8 @@ function VerifyOtp() {
   const [otp, setOtp] = useState("");
   const phone = localStorage.getItem("phone");
   const submit = async () => {
-    console.log("phone:", phone);
-    console.log("otp:", otp);
+    //console.log("phone:", phone);
+    //console.log("otp:", otp);
     if (!phone) {
       alert("شماره موبایل پیدا نشد.");
       navigate("/");

@@ -1,11 +1,10 @@
-import "./Changing.css";
 import Button from "../../component/Button/Button";
 import { useBuilding } from "../../context/Buildingcontext";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getMyBuilding, setCurrentBuilding } from "../../api/auth";
 import Backbutton from "../../component/Backbutton/Backbutton";
-
+import "../../global.css";
 function Changing() {
   const { activeBuilding, setActiveBuilding } = useBuilding();
   const [buildings, serverBuildings] = useState([]);
@@ -33,24 +32,26 @@ function Changing() {
       });
   };
   return (
-    <main className="main-thisbuilding">
+    <main className="mainglobalinpage">
       <Backbutton />
-      <h1 className="thisbuilding-header">یک ساختمان را انتخاب کنید</h1>
-      {buildings.map((buildingbutton) => (
-        <Button
-          key={buildingbutton.id}
-          className="simplebutton-br"
-          onClick={() => towelcomepage(buildingbutton)}
-        >
-          {buildingbutton.name}
-        </Button>
-      ))}
-        <Button
-          className="simplebutton-br position-fx"
-          onClick={() => navigate("/Buildinginfo")}
-        >
-          ثبت ساختمان جدید
-        </Button>
+      <h1 className="globalpageheader">یک ساختمان را انتخاب کنید</h1>
+      <div className="buttonglobalstyle">
+        {buildings.map((buildingbutton) => (
+          <Button
+            key={buildingbutton.id}
+            className="simplebutton-br"
+            onClick={() => towelcomepage(buildingbutton)}
+          >
+            {buildingbutton.name}
+          </Button>
+        ))}
+      </div>
+      <Button
+        className="simplebutton-br position-fx"
+        onClick={() => navigate("/Buildinginfo")}
+      >
+        ثبت ساختمان جدید
+      </Button>
     </main>
   );
 }

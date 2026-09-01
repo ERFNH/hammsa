@@ -35,7 +35,7 @@ function Tanentprofile() {
         >
           مشاهده اعضا
         </Button>
-        <Button className="btntobottom" onClick={() => navigate("/Poll")}>
+        <Button className="btntobottom" onClick={() => navigate("/OwnerBuilding")}>
           تغییر ساختمان
         </Button>
         <Button

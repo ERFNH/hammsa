@@ -40,7 +40,7 @@ function Tenantprofile() {
         >
           مشاهده اعضا
         </Button>
-        <Button className="btntobottom" onClick={() => navigate("/Poll")}>
+        <Button className="btntobottom" onClick={() => navigate("/TenantBuilding")}>
           تغییر ساختمان
         </Button>
       </div>
