@@ -1,4 +1,3 @@
-import Backbutton from "../../component/Backbutton/Backbutton";
 import Search from "../../component/Search/Search";
 import { getActivePrimaryOwners, postTransferManager } from "../../api/auth";
 import { useBuilding } from "../../context/Buildingcontext";
@@ -53,7 +52,6 @@ function Transfer() {
   };
   return (
     <main className={styles.main}>
-      <Backbutton />
       <div className="searcHeader">
         <h1 className="globalpageheader">انتقال مدیریت</h1>
         <Search

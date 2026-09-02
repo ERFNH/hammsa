@@ -4,7 +4,6 @@ import { useBuilding } from "../../context/Buildingcontext";
 import { useEffect, useState } from "react";
 import MemberCard from "../../component/Membercard/Membercard";
 import "../../global.css";
-import Backbutton from "../../component/Backbutton/Backbutton";
 function Showmembers() {
   const [activeTab, setActiveTab] = useState("owner");
   const { activeBuilding } = useBuilding();
@@ -64,7 +63,6 @@ function Showmembers() {
   );
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <Tabs
         tabs={[
           {

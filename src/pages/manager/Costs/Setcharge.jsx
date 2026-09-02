@@ -1,5 +1,4 @@
 import styles from "./Setcharge.module.css";
-import Backbutton from "../../../component/Backbutton/Backbutton";
 import Button from "../../../component/Button/Button";
 import Glassybackground from "../../../component/Glassybackground/Glassybackground";
 import Input from "../../../component/Input/Input";
@@ -94,7 +93,6 @@ function Setcharge() {
   };
   return (
     <main>
-      <Backbutton />
       <div className={styles.chargebox}>
         <Glassybackground>
           <div className={styles.chargerow}>

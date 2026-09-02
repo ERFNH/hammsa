@@ -1,4 +1,3 @@
-import Backbutton from "../../component/Backbutton/Backbutton";
 import { getMyTenant, removetenant } from "../../api/auth";
 import { useBuilding } from "../../context/Buildingcontext";
 import { useEffect, useState } from "react";
@@ -48,7 +47,6 @@ function Showtanant() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">لیست مستاجرین</h1>
       <div className="members-container">
         {loading ? (

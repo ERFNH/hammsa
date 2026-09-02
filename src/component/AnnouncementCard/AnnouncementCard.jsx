@@ -2,7 +2,6 @@ import React from "react";
 import Button from "../Button/Button";
 import Trash from "../../assets/icons/trash.svg?react";
 import "./AnnouncementCard.css";
-
 function AnnouncementCard({ item, onDelete, onRead }) {
   return (
     <div className={`announcement-card priority-${item.priority}`}>

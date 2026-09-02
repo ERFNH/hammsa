@@ -1,4 +1,3 @@
-import Backbutton from "../component/Backbutton/Backbutton";
 import Select from "../component/Select/Select";
 import Datepick from "../component/Datepick/Datepick";
 import Button from "../component/Button/Button";
@@ -81,7 +80,6 @@ function Reservation() {
   };
   return (
     <main className={styles.mainresevation}>
-      <Backbutton />
       <h1 className={styles.headerresevation}>رزرو</h1>
       <form onSubmit={handleSubmit} className={styles.formresevation}>
         <Select

@@ -1,4 +1,3 @@
-import Backbutton from "../../component/Backbutton/Backbutton";
 import { getDashboardFinancials } from "../../api/auth";
 import { useEffect, useState } from "react";
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
@@ -75,7 +74,6 @@ function FinanceReport() {
   }
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">گزارش مالی</h1>
       {loading ? (
         <p className="loadingtext">در حال دریافت اطلاعات</p>

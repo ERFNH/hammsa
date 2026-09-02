@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useBuilding } from "../context/Buildingcontext";
 import { Newrepair } from "../api/auth";
 import Similarnewform from "../component/Similarnewform/Similarnewform";
-
-
 function Repair() {
   const navigate = useNavigate();
   const { activeBuilding } = useBuilding();

@@ -3,7 +3,6 @@ import Button from "../../component/Button/Button";
 import Search from "../../component/Search/Search";
 import "../../global.css";
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
-import Backbutton from "../../component/Backbutton/Backbutton";
 //import { getPaid } from "../../api/auth";
 import { useBuilding } from "../../context/Buildingcontext";
 import jsPDF from "jspdf";
@@ -119,7 +118,6 @@ function ShowTransaction() {
   });
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <div className="searcHeader">
         <h1 className="globalpageheader">تراکنش ها</h1>
         <Search value={searchTerm} onChange={setSearchTerm} />

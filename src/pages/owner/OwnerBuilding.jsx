@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getMyBuilding } from "../../api/auth";
 import "../../global.css";
 import { Roles } from "../../constants/Roles";
-import Backbutton from "../../component/Backbutton/Backbutton";
 function OwnerBuilding() {
   const [buildings, setBuildings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -25,7 +24,6 @@ function OwnerBuilding() {
   if (loading) return <p className="loadingtext">در حال دریافت اطلاعات</p>;
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">ساختمان‌های من</h1>
       {buildings.map((buildingbutton) => (
         <Button

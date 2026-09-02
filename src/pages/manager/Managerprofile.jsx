@@ -62,7 +62,6 @@ function ManagerProfile() {
         </p>
         <p className="globalprofile-name">مدیر</p>
       </header>
-
       <div className="buttonglobalstyle managerprf-button">
         <Button
           onClick={() => navigate("/BuildingInfo")}

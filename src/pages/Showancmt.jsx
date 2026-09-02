@@ -1,6 +1,5 @@
 import "./Showancmt.css";
 import Tabs from "../component/Tabs/Tabs";
-import Backbutton from "../component/Backbutton/Backbutton";
 import AnnouncementCard from "../component/AnnouncementCard/AnnouncementCard";
 import { useEffect, useState } from "react";
 import { useBuilding } from "../context/Buildingcontext";
@@ -50,7 +49,6 @@ function Showancmt() {
   const readAnnouncements = announcements.filter((item) => item.isRead);
   return (
     <main>
-      <Backbutton />
       <Tabs
         tabs={[
           { value: "read", label: "خوانده شده" },

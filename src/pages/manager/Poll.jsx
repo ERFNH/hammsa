@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Input from "../../component/Input/Input";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import Button from "../../component/Button/Button";
 import Select from "../../component/Select/Select";
 import Datepick from "../../component/Datepick/Datepick";
@@ -61,7 +60,6 @@ function Poll() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">ایجاد رای گیری</h1>
       <form onSubmit={handleSubmit} className="globalpageform">
         <Input

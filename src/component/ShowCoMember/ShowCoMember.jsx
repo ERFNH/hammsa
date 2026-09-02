@@ -1,4 +1,3 @@
-import Backbutton from "../../component/Backbutton/Backbutton";
 import styles from "./ShowCoMember.module.css";
 import "../../global.css";
 import Button from "../Button/Button";
@@ -64,7 +63,6 @@ function ShowCoMember() {
   });
   return (
     <main className={`mainglobalinpage ${styles.coMembersContainer}`}>
-      <Backbutton />
       {loading ? (
         <p className="loadingtext">در حال دریافت اطلاعات</p>
       ) : filteredMembers.length === 0 ? (

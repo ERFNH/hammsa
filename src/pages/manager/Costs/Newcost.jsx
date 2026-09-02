@@ -1,4 +1,3 @@
-import Backbutton from "../../../component/Backbutton/Backbutton";
 import Input from "../../../component/Input/Input";
 import Button from "../../../component/Button/Button";
 import Select from "../../../component/Select/Select";
@@ -30,7 +29,6 @@ function Newcosts() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">خرید جدید</h1>
       <form className="globalpageform" onSubmit={handleSubmit}>
         <Select

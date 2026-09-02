@@ -17,7 +17,7 @@ function Welcome() {
   const [loading, setLoading] = useState(true);
   const phone = localStorage.getItem("phone");
   const [charge, setCharge] = useState({ amount: 0, isPaid: false });
-  const [buildingImage, setBuildingImage] = useState("");
+  const [buildingImage, setBuildingImage] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +28,7 @@ function Welcome() {
         if (activeBuilding?.buildingId) {
           try {
             const imageRes = await geImage(activeBuilding.buildingId);
-            setBuildingImage(imageRes?.data?.imageUrl || "");
+            setBuildingImage(imageRes?.data?.imageUrl || null);
           } catch (err) {
             console.error("خطا در دریافت تصویر ساختمان:", err);
           }
@@ -103,7 +103,13 @@ function Welcome() {
       {activeBuilding && (
         <>
           <header className="welcome-header">
-            <img src={buildingImage} alt="ساختمان" className="buildingimage" />
+            {buildingImage && (
+              <img
+                src={buildingImage}
+                alt="ساختمان"
+                className="buildingimage"
+              />
+            )}
             <div className="welcome-box">
               <h1 className="welcomebox-title">
                 <span>

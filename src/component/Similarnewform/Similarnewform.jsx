@@ -1,22 +1,17 @@
 import React, { useState } from "react";
 import "./Similarnewform.css"
-import Backbutton from "../../component/Backbutton/Backbutton";
 import Input from "../../component/Input/Input";
 import Select from "../../component/Select/Select";
 import Button from "../../component/Button/Button";
-
 function Similarnewform({ pageTitle, onSubmit }) {
   const [subject, setSubject] = useState("");
   const [discription, setdiscription] = useState("");
   const [priority, setPriority] = useState("");
-
   const handleSubmit = () => {
     onSubmit({ subject, discription, priority });
   };
-
   return (
     <main className="main-announcment">
-      <Backbutton />
       <h1 className="announcment-header">{pageTitle}</h1>
       <div className="announcment-input">
         <Input

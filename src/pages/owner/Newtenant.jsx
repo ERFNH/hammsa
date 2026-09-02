@@ -1,5 +1,4 @@
 import Input from "../../component/Input/Input";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import Button from "../../component/Button/Button";
 import Datepick from "../../component/Datepick/Datepick";
 import { tenants } from "../../api/auth";
@@ -39,7 +38,6 @@ function Newtenant() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader"> ثبت مستاجر جدید</h1>
       <form action="" className="globalpageform" onSubmit={submit}>
         <Input

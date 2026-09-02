@@ -1,5 +1,4 @@
 import { getMyResevation } from "../api/auth";
-import Backbutton from "../component/Backbutton/Backbutton";
 import { useBuilding } from "../context/Buildingcontext";
 import styles from "./Showresevation.module.css";
 import { useState, useEffect } from "react";
@@ -29,7 +28,6 @@ function Showresevation() {
   };
   return (
     <main className={styles.mainShowresevation}>
-      <Backbutton />
       {loading ? (
         <p>درحال دریافت اطلاعات</p>
       ) : (

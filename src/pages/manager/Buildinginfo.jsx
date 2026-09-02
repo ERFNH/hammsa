@@ -3,7 +3,6 @@ import styles from "./Buildinginfo.module.css";
 import Input from "../../component/Input/Input";
 import Button from "../../component/Button/Button";
 import Switch from "../../component/Switch/Switch";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import {
   getBuildingDetails,
   updateBuilding,
@@ -119,7 +118,6 @@ function Buildinginfo() {
   };
   return (
     <form className="mainglobalinpage" onSubmit={Submit}>
-      <Backbutton />
       <div>
         <h1 className="globalpageheader">اطلاعات ساختمان</h1>
       </div>

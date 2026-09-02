@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import Input from "../Input/Input";
 import "./Otpinput.css";
-
 function Otpinput({ value, onChange }) {
   const inputRefs = useRef([]);
   const length = 5;

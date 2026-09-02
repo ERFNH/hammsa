@@ -1,4 +1,3 @@
-import Backbutton from "../../component/Backbutton/Backbutton";
 import "../../global.css";
 import Button from "../../component/Button/Button";
 import { useNavigate } from "react-router-dom";
@@ -64,7 +63,6 @@ function ChalengePage() {
   }
   return (
     <main>
-      <Backbutton />
       <div className="mainglobalinpage">
         <h1 className="globalpageheader">چالش ورزشی این هفته</h1>
         {!challengeData?.isRegistered && isRegistrationDay ? (

@@ -1,4 +1,3 @@
-import Backbutton from "../../component/Backbutton/Backbutton";
 import "../../global.css";
 import { getPredict } from "../../api/auth";
 import { useEffect, useState } from "react";
@@ -21,7 +20,6 @@ function FinancePredict() {
   }, [activeBuilding]);
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">پیش بینی هزینه</h1>
       {!data ? (
         <p>در حال دریافت اطلاعات</p>

@@ -1,4 +1,3 @@
-import Backbutton from "../../../component/Backbutton/Backbutton";
 import {
   getExpencseList,
   deleteExpence,
@@ -75,7 +74,6 @@ function ShowNewCost() {
       alert("خطا در ویرایش خرید.");
     }
   };
-
   const startEditing = (item) => {
     let category = item.category;
     if (typeof category === "string") {
@@ -89,7 +87,6 @@ function ShowNewCost() {
 
       category = categoryValues[category];
     }
-
     setEditing({
       ...item,
       category: Number(category),
@@ -97,15 +94,11 @@ function ShowNewCost() {
       title: item.title || "",
     });
   };
-
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
-
       <h1 className="globalpageheader">
         {editing ? "ویرایش خرید" : "لیست خریدها"}
       </h1>
-
       {editing ? (
         <div className="globalpageform">
           <Select

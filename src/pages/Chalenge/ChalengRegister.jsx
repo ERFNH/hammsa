@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Input from "../../component/Input/Input";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import Button from "../../component/Button/Button";
 import Option from "../../component/Option/Option";
 import Select from "../../component/Select/Select";
@@ -39,7 +38,6 @@ function ChalengRegister() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">مشخصاتت رو وارد کن</h1>
       <form className="globalpageform" onSubmit={handleSubmit}>
         <Input

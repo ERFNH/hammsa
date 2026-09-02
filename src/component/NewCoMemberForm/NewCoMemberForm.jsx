@@ -1,5 +1,4 @@
 import Button from "../Button/Button";
-import Backbutton from "../Backbutton/Backbutton";
 import Input from "../Input/Input";
 import "../../global.css";
 import { useBuilding } from "../../context/Buildingcontext";
@@ -27,7 +26,6 @@ function NewCoMemberForm({
   };
   return ( 
     <form onSubmit={handleFormSubmit} className="mainglobalinpage"> 
-      <Backbutton />
       <h1 className="globalpageheader">{headerTitle}</h1>
       <div className="globalpageform">
         <Input

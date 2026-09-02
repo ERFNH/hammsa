@@ -19,7 +19,7 @@ function Costs() {
       if (!activeBuilding?.buildingId) return;
       try {
         const response = await getExpenseSummary(activeBuilding.buildingId);
-        console.log("پاسخ سرور", response);
+        //console.log("پاسخ سرور", response);
         setSummary(response.data);
       } catch (err) {
         console.log(err);

@@ -1,5 +1,4 @@
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import "./Showrepair.css";
 import { useState, useEffect } from "react";
 import { Showrepair as getRepairReports } from "../../api/auth";
@@ -27,7 +26,6 @@ function ShowRepair() {
 
   return (
     <main className="showrepair-main">
-      <Backbutton />
       {loading ? (
         <p className="loadingtext">در حال دریافت اطلاعات</p>
       ) : (

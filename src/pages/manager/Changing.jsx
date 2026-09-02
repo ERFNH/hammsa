@@ -3,7 +3,6 @@ import { useBuilding } from "../../context/Buildingcontext";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getMyBuilding, setCurrentBuilding } from "../../api/auth";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import "../../global.css";
 function Changing() {
   const { activeBuilding, setActiveBuilding } = useBuilding();
@@ -33,7 +32,6 @@ function Changing() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">یک ساختمان را انتخاب کنید</h1>
       <div className="buttonglobalstyle">
         {buildings.map((buildingbutton) => (

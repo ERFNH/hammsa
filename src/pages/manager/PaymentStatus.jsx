@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import "../../global.css";
 import Button from "../../component/Button/Button";
 import styles from "./PaymentStatus.module.css";
@@ -40,7 +39,6 @@ function PaymentStatus() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">وضعیت پرداخت</h1>
       <div className="cart">
         <Glassybackground>

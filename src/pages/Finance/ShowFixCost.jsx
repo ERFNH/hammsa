@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useBuilding } from "../../context/Buildingcontext";
 import { getSharedCost } from "../../api/auth";
 import FixCostt from "../../component/FixCostt/FixCostt";
-
 function ShowFixCost() {
   const { activeBuilding } = useBuilding();
   const [costs, setCosts] = useState({
@@ -16,10 +15,8 @@ function ShowFixCost() {
     isElevatorPaid: false,
   });
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     if (!activeBuilding?.buildingId) return;
-
     getSharedCost(activeBuilding.buildingId)
       .then((res) => {
         setCosts(res.data);
@@ -30,9 +27,7 @@ function ShowFixCost() {
         setLoading(false);
       });
   }, [activeBuilding]);
-
   if (loading) return <p className="loadingtext">در حال دریافت اطلاعات</p>;
-
   return (
     <FixCostt
       costs={costs}

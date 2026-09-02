@@ -23,7 +23,6 @@ function TenantBuilding() {
   if (loading) return <p className="loadingtext">در حال دریافت اطلاعات</p>;
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">یک ساختمان را انتخاب کنید</h1>
       <div className="buttonglobalstyle">
         {buildings.map((buildingbutton) => (
