@@ -11,10 +11,10 @@ function Publicprofile() {
   const navigate = useNavigate();
   const handlesubmit = async (e) => {
     e.preventDefault();
-    console.log("دیتای ارسالی:", { firstName: firstname, lastName: lastname });
+    //console.log("دیتای ارسالی:", { firstName: firstname, lastName: lastname });
     try {
       const response = await putUserprofile(firstname, lastname);
-      alert("اطلاعات شما ثبت شد");
+      //alert("اطلاعات شما ثبت شد");
       navigate("/Welcome");
     } catch (error) {
       console.error("خطای کامل:", error.response?.data);

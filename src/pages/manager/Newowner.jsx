@@ -9,7 +9,7 @@ import NewCoMemberForm from "../../component/NewCoMemberForm/NewCoMemberForm";
 import "../../global.css";
 function Newowner() {
   const { activeBuilding } = useBuilding();
-  console.log("activeBuilding:", activeBuilding);
+  //console.log("activeBuilding:", activeBuilding);
   const navigate = useNavigate();
   const [ownerPhoneNumber, setOwnerPhoneNumber] = useState("");
   const [block, setBlock] = useState("");

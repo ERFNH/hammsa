@@ -75,11 +75,11 @@ function Setcharge() {
         setCurrentAmount(String(data.currentMonth.amount || 0));
         setIsCurrentEditable(false);
       }
-      alert(`شارژ ماه ${getPersianMonth(now)} با موفقیت ثبت شد.`);
+      //alert(`شارژ ماه ${getPersianMonth(now)} با موفقیت ثبت شد.`);
       setLoading(false);
     } catch (err) {
-      console.error("خطا:", err);
-      console.log("خطای کامل سرور:", err.response?.data);
+      //console.error("خطا:", err);
+      console.log("خطای کامل :", err.response?.data);
       if (err.response?.data?.errors) {
         const errorMessages = Object.entries(err.response.data.errors)
           .map(([key, value]) => `${key}: ${value.join(", ")}`)

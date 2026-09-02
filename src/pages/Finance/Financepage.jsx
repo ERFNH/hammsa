@@ -31,7 +31,7 @@ function Finance() {
           }
         }
       } catch (err) {
-        console.log("خطا در دریافت اطلاعات:", err);
+        //console.log("خطا در دریافت اطلاعات:", err);
       } finally {
         setLoading(false);
       }
