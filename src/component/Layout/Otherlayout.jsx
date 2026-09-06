@@ -5,25 +5,41 @@ import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { geImage } from "../../api/auth";
 import { useBuilding } from "../../context/Buildingcontext";
+
 function Otherlayout() {
-  const { activeBuilding, loading } = useBuilding();
+  const { activeBuilding } = useBuilding();
   const [backgroundImage, setBackgroundImage] = useState("");
+
   useEffect(() => {
     const buildingId = activeBuilding?.buildingId;
-    if (!buildingId) return;
+    if (!buildingId) {
+      setBackgroundImage("");
+      return;
+    }
+
+    let isMounted = true;
+
     geImage(buildingId)
       .then((res) => {
-        //console.log("IMAGE API RESPONSE:", res.data);
+        if (!isMounted) return;
         const imageUrl = res?.data?.imageUrl;
         if (imageUrl) {
-          //console.log("IMAGE URL:", imageUrl);
           setBackgroundImage(imageUrl);
+        } else {
+          setBackgroundImage("");
         }
       })
       .catch((err) => {
-        console.log( err.response?.data);
+        if (!isMounted) return;
+        console.log("خطا در دریافت عکس:", err?.response?.data);
+        setBackgroundImage("");
       });
-  }, [activeBuilding]);
+
+    return () => {
+      isMounted = false;
+    };
+  }, [activeBuilding?.buildingId]);
+
   return (
     <div className="app">
       <div className="mobile-container">
