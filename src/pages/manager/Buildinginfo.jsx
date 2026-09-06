@@ -28,7 +28,7 @@ function Buildinginfo() {
   const [hasMeetingHall, setHasMeetingHall] = useState(false);
   const [hasRoofGarden, setHasRoofGarden] = useState(false);
   const [image, setImage] = useState(null);
-  refreshBuilding();
+  //refreshBuilding();
   React.useEffect(() => {
     if (activeBuilding?.id) {
       getBuildingDetails(activeBuilding.id)
@@ -104,7 +104,7 @@ function Buildinginfo() {
         }
         response = await createBuilding(formData);
       }
-      console.log(response.data);
+      //console.log(response.data);
       setActiveBuilding(response.data);
       refreshBuilding();
       alert("اطلاعات با موفقیت ثبت شد");

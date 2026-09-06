@@ -5,7 +5,7 @@ export function Rolecomponent({ allowedRoles, children }) {
   const { userRole, loading, activeBuilding } = useBuilding();
   console.log("نقش فعلی کاربر:", userRole);
   if (loading) {
-    return <div className="loading-Rolecomponent">در حال بارگذاری</div>;
+    return <div className="loadingtext">در حال بارگذاری</div>;
   }
   if (!activeBuilding) {
     return children;
