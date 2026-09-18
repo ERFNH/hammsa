@@ -1,4 +1,4 @@
-import Backbutton from "../../component/Backbutton/Backbutton";
+
 import Search from "../../component/Search/Search";
 import { useState, useEffect } from "react";
 import "../../global.css";
@@ -43,7 +43,6 @@ function ShowListingService() {
   });
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <div className="searcHeader">
         <h1 className="globalpageheader">آگهی همسایگان</h1>
         <Search value={searchTerm} onChange={setSearchTerm} />

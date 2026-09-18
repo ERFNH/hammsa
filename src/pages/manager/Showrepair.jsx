@@ -60,11 +60,7 @@ function ShowRepair() {
                     <div className="repair-row">
                       <span className="repair-label">اولویت</span>
                       <div className="repair-value">
-                        {item.priority === 1
-                          ? "زیاد"
-                          : item.priority === 2
-                            ? "عادی"
-                            : "کم"}
+                        {Number(item.priority) === 0 ? "مهم" : "عادی"}
                       </div>
                     </div>
                   </div>

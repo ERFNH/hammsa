@@ -1,4 +1,3 @@
-import Backbutton from "../../component/Backbutton/Backbutton";
 import { getLocalService } from "../../api/auth";
 import { useBuilding } from "../../context/Buildingcontext";
 import { useEffect, useState } from "react";
@@ -49,7 +48,6 @@ function ShowLocalService() {
   }, [activeBuilding]);
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <div className="searcHeader">
         <h1 className="globalpageheader">لیست خدمات محلی</h1>
         <Search value={searchTerm} onChange={setSearchTerm} />

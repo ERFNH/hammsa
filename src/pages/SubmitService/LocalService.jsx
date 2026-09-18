@@ -1,4 +1,4 @@
-import Backbutton from "../../component/Backbutton/Backbutton";
+
 import Select from "../../component/Select/Select";
 import Input from "../../component/Input/Input";
 import "../../global.css";
@@ -44,7 +44,6 @@ function LocalService() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">ثبت خدمات محلی</h1>
       <form className="globalpageform" onSubmit={submit}>
         <Select

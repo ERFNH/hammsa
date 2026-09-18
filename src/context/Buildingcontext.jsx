@@ -24,7 +24,7 @@ export function Buildingcontrol({ children }) {
         const myBuildingsRes = await getMyBuilding();
         //console.log("TOKEN USED:", localStorage.getItem("token"));
         //console.log("MY BUILDINGS STATUS:", myBuildingsRes.status);
-        //console.log("MY BUILDINGS:", myBuildingsRes.data);
+        //console.log("MY BUILDINGS DATA:", myBuildingsRes.data);  
         const buildings = myBuildingsRes?.data || [];
         //console.log("ساختمان من ", buildings);
         if (!buildings.length) {

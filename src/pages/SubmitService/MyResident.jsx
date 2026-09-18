@@ -1,4 +1,3 @@
-import Backbutton from "../../component/Backbutton/Backbutton";
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
 import { getMyResident, deleteMyResident } from "../../api/auth";
 import { useEffect, useState } from "react";
@@ -45,7 +44,6 @@ function MyResident() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">رویدادهایی من</h1>
       {loading ? (
         <p className="loadingtext">در حال دریافت اطلاعات</p>

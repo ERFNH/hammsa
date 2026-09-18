@@ -1,4 +1,3 @@
-import Backbutton from "../../component/Backbutton/Backbutton";
 import { getResident } from "../../api/auth";
 import { useEffect, useState } from "react";
 import { useBuilding } from "../../context/Buildingcontext";
@@ -38,7 +37,6 @@ function ShowResidentService() {
   });
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <div className="searcHeader">
         <h1 className="globalpageheader">رویدادهای ساکنین</h1>
         <Search value={searchTerm} onChange={setSearchTerm} />

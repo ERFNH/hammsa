@@ -1,7 +1,6 @@
 import { postCreatGroupBuy } from "../../api/auth";
 import Input from "../../component/Input/Input";
 import Button from "../../component/Button/Button";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import Datepick from "../../component/Datepick/Datepick";
 import { useBuilding } from "../../context/Buildingcontext";
 import "../../global.css";
@@ -35,7 +34,6 @@ function GroupService() {
   return (
     <main className="mainglobalinpage">
       <h1 className="globalpageheader">ثبت خرید گروهی</h1>
-      <Backbutton />
       <form className="globalpageform" onSubmit={submit}>
         <Input
           value={title}

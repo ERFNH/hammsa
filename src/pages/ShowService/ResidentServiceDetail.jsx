@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import { getResidentDitail, postRegisterRes } from "../../api/auth";
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
 import "../../global.css";
@@ -46,7 +45,6 @@ function ResidentServiceDetail() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">جزئیات رویداد</h1>
       {loading ? (
         <p className="loadingtext">در حال دریافت اطلاعات</p>

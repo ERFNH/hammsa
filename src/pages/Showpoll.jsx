@@ -1,6 +1,5 @@
 import styles from "./Showpoll.module.css";
 import Tabs from "../component/Tabs/Tabs";
-import Backbutton from "../component/Backbutton/Backbutton";
 import PollCard from "../component/PollCard/PollCard";
 import { useEffect, useState } from "react";
 import { useBuilding } from "../context/Buildingcontext";
@@ -35,7 +34,6 @@ function Showpoll() {
   }, [activeBuilding]);
   return (
     <main className={styles.showpoll}>
-      <Backbutton />
       <h1 className={styles.header}>رای‌گیری‌ها</h1>
       <Tabs
         tabs={[

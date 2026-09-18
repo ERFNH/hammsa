@@ -1,4 +1,3 @@
-import Backbutton from "../Backbutton/Backbutton";
 import styles from "./FixCostt.module.css";
 import Glassybackground from "../Glassybackground/Glassybackground";
 import Input from "../Input/Input";
@@ -12,7 +11,6 @@ function FixCostt({
 }) {
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <section className="headerglobalstyle">
         <h1 className="globalpageheader">هزینه های ثابت ساختمان</h1>
         <Glassybackground>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import Button from "../../component/Button/Button";
 import Input from "../../component/Input/Input";
 import Select from "../../component/Select/Select";
@@ -46,7 +45,6 @@ function ListingService() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">ثبت آگهی</h1>
       <form className="globalpageform" onSubmit={submit}>
         <Select

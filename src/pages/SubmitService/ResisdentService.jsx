@@ -1,4 +1,3 @@
-import Backbutton from "../../component/Backbutton/Backbutton";
 import Input from "../../component/Input/Input";
 import Button from "../../component/Button/Button";
 import Select from "../../component/Select/Select";
@@ -40,7 +39,6 @@ function ResisdentService() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">ثبت رویداد</h1>
       <form className="globalpageform" onSubmit={handleSubmit}>
         <Select

@@ -74,6 +74,10 @@ function footer() {
     "/ShowCoOwner",
     "/TenantBuilding",
     "/OwnerBuilding",
+    "/FixCost",
+    "/Newcost",
+    "/ShowNewCost",
+    "/Setcharge",
   ];
   const isProfile = profilePages.includes(location.pathname);
   let profilepath = "/managerprofile";

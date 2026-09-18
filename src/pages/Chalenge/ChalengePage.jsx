@@ -8,6 +8,7 @@ import {
 } from "../../api/auth";
 import { useEffect, useState } from "react";
 import { useBuilding } from "../../context/Buildingcontext";
+
 function ChalengePage() {
   const { activeBuilding } = useBuilding();
   const navigate = useNavigate();
@@ -15,8 +16,10 @@ function ChalengePage() {
   const [challengeData, setChallengeData] = useState(null);
   const [detailData, setDetailData] = useState(null);
   const [isCompleted, setIsCompleted] = useState(false);
+
   const today = new Date().getDay();
   const isRegistrationDay = today === 6 || today === 0 || today === 1;
+
   useEffect(() => {
     const fetchData = async () => {
       if (!activeBuilding?.buildingId) return;
@@ -25,6 +28,7 @@ function ChalengePage() {
         const statusRes = await getChalengeStatus(activeBuilding.buildingId);
         const status = statusRes.data?.data;
         setChallengeData(status);
+
         if (status?.isRegistered || !isRegistrationDay) {
           const detailRes = await getChalengeDetail(activeBuilding.buildingId);
           const detail = detailRes.data?.data;
@@ -40,6 +44,7 @@ function ChalengePage() {
     };
     fetchData();
   }, [activeBuilding?.buildingId, isRegistrationDay]);
+
   const handleComplete = async () => {
     if (!activeBuilding?.buildingId) return;
     try {
@@ -51,20 +56,22 @@ function ChalengePage() {
       alert(err?.response?.data?.message || "خطا در ثبت انجام چالش");
     }
   };
+
   if (loading) {
     return (
       <main>
-        <Backbutton />
         <div className="mainglobalinpage">
           <p className="loadingtext">در حال دریافت اطلاعات</p>
         </div>
       </main>
     );
   }
+
   return (
     <main>
       <div className="mainglobalinpage">
         <h1 className="globalpageheader">چالش ورزشی این هفته</h1>
+
         {!challengeData?.isRegistered && isRegistrationDay ? (
           <>
             <p className="loadingtext">در چالش ورزشی این هفته شرکت میکنی؟</p>
@@ -88,6 +95,8 @@ function ChalengePage() {
               </p>
             </section>
           </>
+        ) : !challengeData?.isRegistered && !isRegistrationDay ? (
+          <p className="loadingtext">مهلت ثبت‌نام در چالش این هفته به پایان رسیده است</p>
         ) : (
           <>
             {detailData ? (
@@ -125,4 +134,5 @@ function ChalengePage() {
     </main>
   );
 }
+
 export default ChalengePage;

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import { getMyListing, delMyListing } from "../../api/auth";
 import { useBuilding } from "../../context/Buildingcontext";
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
@@ -48,7 +47,6 @@ function MyListing() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">آگهی‌های من</h1>
       {loading ? (
         <p className="loadingtext">در حال دریافت اطلاعات</p>

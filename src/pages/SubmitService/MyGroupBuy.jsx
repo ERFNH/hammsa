@@ -1,5 +1,4 @@
 import "../../global.css";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import { useEffect, useState } from "react";
 import { useBuilding } from "../../context/Buildingcontext";
 import { getMyGroupBuying, deleteMyBuy } from "../../api/auth";
@@ -38,7 +37,6 @@ function MyGroupBuy() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">خرید‌های من</h1>
       {loading ? (
         <p className="loadingtext">در حال دریافت اطلاعات</p>

@@ -1,4 +1,3 @@
-import Backbutton from "../component/Backbutton/Backbutton";
 import styles from "./Publicprofile.module.css";
 import Input from "../component/Input/Input";
 import Button from "../component/Button/Button";
@@ -23,7 +22,6 @@ function Publicprofile() {
   };
   return (
     <form className={styles.mainPublicprofile} onSubmit={handlesubmit}>
-      <Backbutton />
       <h1 className={styles.headerpublicprofil}>ویرایش پروفایل</h1>
       <Input
         className="input-label input-textphone"

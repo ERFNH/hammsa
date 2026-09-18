@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getGroupBuy, joinGroupBuying } from "../../api/auth";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import { useBuilding } from "../../context/Buildingcontext";
 import "../../global.css";
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
@@ -46,7 +45,6 @@ function ShowGroupSerive() {
   };
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">خرید‌های گروهی ایجاد شده</h1>
       {loading ? (
         <p className="loadingtext">در حال دریافت اطلاعات</p>

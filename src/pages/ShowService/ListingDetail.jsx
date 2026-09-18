@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getListingDetail } from "../../api/auth";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
 import styles from "./ListingDetail.module.css";
 import "../../global.css";
@@ -36,7 +35,6 @@ function ListingDetail() {
   }, [id]);
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       {loading ? (
         <p className="loadingtext">در حال دریافت اطلاعات</p>
       ) : !item ? (

@@ -1,5 +1,4 @@
 import styles from "./Costspage.module.css";
-import Backbutton from "../../../component/Backbutton/Backbutton";
 import Button from "../../../component/Button/Button";
 import Glassybackground from "../../../component/Glassybackground/Glassybackground";
 import "../../../global.css";
@@ -29,7 +28,6 @@ function Costs() {
   }, [activeBuilding]);
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       <h1 className="globalpageheader">هزینه ها</h1>
       <Glassybackground>
         <div className={styles.costs}>

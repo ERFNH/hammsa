@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Glassybackground from "../../component/Glassybackground/Glassybackground";
 import { getLocalServiceDitail, postLocalRate } from "../../api/auth";
-import Backbutton from "../../component/Backbutton/Backbutton";
 import Star from "../../assets/icons/Star.svg?react";
 import "../../global.css";
 import styles from "./LocalServiceDetail.module.css";
@@ -63,7 +62,6 @@ function ServiceDetail() {
   if (loading) return <p className="loadingtext">در حال دریافت اطلاعات</p>;
   return (
     <main className="mainglobalinpage">
-      <Backbutton />
       {!item ? (
         <p className="loadingtext">خدمت مورد نظر یافت نشد</p>
       ) : (
@@ -93,7 +91,7 @@ function ServiceDetail() {
                 <strong>ساعات کاری:</strong> {item.workingHours}
               </p>
               <p className="cartrow">
-                <strong>تعداد کاربرانی که رای داده‌اند:</strong>
+                <strong>تعداد کاربرانی که رای داده‌اند</strong>
                 {ratingCount}
               </p>
             </div>

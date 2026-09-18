@@ -31,11 +31,10 @@ function Similarnewform({ pageTitle, onSubmit }) {
         <Select
           label="اولویت"
           value={priority}
-          onChange={setPriority}
+          onChange={(val) => setPriority(Number(val))}
           options={[
-            { value: 1, label: "فوری" },
-            { value: 2, label: "مهم" },
-            { value: 3, label: "عادی" },
+            { value: 1, label: "مهم" },
+            { value: 2, label: "عادی" },
           ]}
         />
         <Button
