@@ -1,21 +1,12 @@
 .headerresevation {
   font-size: 1rem;
 }
-.mainresevation {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-}
-.selectgroup {
+
+.selecttgroup {
   display: grid;
-  grid-template-columns: 10rem 1fr;
-  direction: rtl;
-  width: 12rem;
+  grid-template-columns: 12rem 1fr;
 }
-.selectgroup Select {
-  width: 100%;
-}
+
 .formresevation {
   display: flex;
   flex-direction: column;

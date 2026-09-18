@@ -1,6 +1,6 @@
 .datepicker-group {
   display: grid;
-  grid-template-columns: 10rem 1fr;
+  grid-template-columns: 8rem 1fr;
   align-items: center;
   direction: rtl;
 }

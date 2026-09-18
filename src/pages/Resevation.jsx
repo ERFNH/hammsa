@@ -5,6 +5,7 @@ import styles from "./Resevation.module.css";
 import { postResavation, getReservedDates } from "../api/auth";
 import { useBuilding } from "../context/Buildingcontext";
 import { useState, useEffect } from "react";
+import "../global.css"
 function Reservation() {
   const { activeBuilding, loading: buildingLoading } = useBuilding();
   const buildingId = activeBuilding?.buildingId;
@@ -79,11 +80,11 @@ function Reservation() {
     }
   };
   return (
-    <main className={styles.mainresevation}>
+    <main className="mainglobalinpage">
       <h1 className={styles.headerresevation}>رزرو</h1>
-      <form onSubmit={handleSubmit} className={styles.formresevation}>
+      <form onSubmit={handleSubmit} className="globalpageform">
         <Select
-          className={styles.selectgroup}
+          className={styles.selecttgroup}
           label="رزرو برای"
           options={[
             { value: 0, label: "سالن ورزشی" },
