@@ -32,7 +32,7 @@ function Newcosts() {
       <h1 className="globalpageheader">خرید جدید</h1>
       <form className="globalpageform" onSubmit={handleSubmit}>
         <Select
-          label="اولویت"
+          label="دسته بندی"
           value={category}
           onChange={setCategory}
           options={[
